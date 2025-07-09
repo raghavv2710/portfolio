@@ -19,17 +19,6 @@ const sentence = {
   },
 };
 
-const letter = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
-const line1 = "Hi, I am ";
-const line2 = "Raghavendra";
-
 const HeroSection = () => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
@@ -39,7 +28,7 @@ const HeroSection = () => {
             <ThreeCanvas />
           </div>
         </MagneticWrapper>
-        <div className="mt-[-2rem] mb-6">
+        <div className="mt-[-2rem] mb-6 text-center">
             <motion.h1
               className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
               variants={sentence}
@@ -49,7 +38,7 @@ const HeroSection = () => {
               <AnimatedText text="Hi, I am " className="inline-block" />
               <AnimatedText text="Raghavendra" className="text-accent inline-block" />
             </motion.h1>
-            <p className="max-w-2xl text-lg md:text-xl text-foreground/80 mt-4 text-center">
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mt-4">
             A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
             </p>
         </div>
