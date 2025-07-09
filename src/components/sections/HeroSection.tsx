@@ -38,9 +38,6 @@ const HeroSection = () => {
               <AnimatedText text="Hi, I am " className="inline-block" />
               <AnimatedText text="Raghavendra" className="text-accent inline-block" />
             </motion.h1>
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mt-4">
-            A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
-            </p>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-4">
