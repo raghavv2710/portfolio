@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Sparkles, TrendingUp, TrendingDown } from 'lucide-react';
+import { Loader2, Sparkles, TrendingUp, TrendingDown, Lightbulb } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
 const formSchema = z.object({
@@ -147,10 +147,21 @@ const AiAnalysisSection = () => {
                       </ul>
                   </div>
               </div>
-              <div className="mt-6">
-                  <h4 className="font-semibold mb-2">Detailed Feedback</h4>
-                  <p className="text-sm text-foreground/80 bg-muted/50 p-4 rounded-md">{analysis.feedback}</p>
-              </div>
+              {analysis.detailedFeedback && analysis.detailedFeedback.length > 0 && (
+                <div className="mt-6">
+                    <h4 className="font-semibold mb-2">Detailed Feedback</h4>
+                    <div className="text-sm text-foreground/80 bg-muted/50 p-4 rounded-md">
+                      <ul className="space-y-3">
+                        {analysis.detailedFeedback.map((point, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <Lightbulb className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                </div>
+              )}
             </CardContent>
           )}
         </Card>

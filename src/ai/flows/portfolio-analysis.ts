@@ -25,7 +25,7 @@ const AnalyzePortfolioOutputSchema = z.object({
   score: z.number().describe('An overall score for the portfolio (0-100).'),
   strengths: z.array(z.string()).describe('Key strengths of the portfolio.'),
   areasForImprovement: z.array(z.string()).describe('Areas where the portfolio can be improved.'),
-  feedback: z.string().describe('Detailed feedback on the portfolio, covering both content and visual appeal.'),
+  detailedFeedback: z.array(z.string()).describe('A list of detailed feedback points, covering content, visual appeal, and overall effectiveness. Each point should be a separate string in the array.'),
 });
 export type AnalyzePortfolioOutput = z.infer<typeof AnalyzePortfolioOutputSchema>;
 
@@ -37,21 +37,25 @@ const analyzePortfolioPrompt = ai.definePrompt({
   name: 'analyzePortfolioPrompt',
   input: {schema: AnalyzePortfolioInputSchema},
   output: {schema: AnalyzePortfolioOutputSchema},
-  prompt: `You are a portfolio analysis expert, skilled in evaluating both the content and visual appeal of portfolios.
+  prompt: `You are a friendly and encouraging AI mentor for web developers and designers. Your goal is to provide constructive, kind, and actionable feedback to help users build amazing portfolios.
 
-  Analyze the following portfolio description and provide a score, identify strengths and areas for improvement, and give detailed feedback.
+Analyze the portfolio based on the provided description and optional link. Your tone should always be positive and supportive, even when pointing out areas for improvement. Think of this as a collaborative review session, not a critique.
 
-  Portfolio Description: {{{portfolioDescription}}}
+Portfolio Description: {{{portfolioDescription}}}
+{{#if portfolioLink}}
+Portfolio Link: {{{portfolioLink}}}
+{{/if}}
 
-  {% if portfolioLink %}Portfolio Link: {{{portfolioLink}}}{% endif %}
+Please evaluate the following:
+1.  **Content & Storytelling:** How well does the portfolio present the user's skills and journey? Is it engaging?
+2.  **Design & UX:** How is the visual design, layout, and user experience? Is it modern and intuitive?
+3.  **Overall Impact:** How effective is the portfolio in achieving its goals (e.g., getting a job, showcasing work)?
 
-  Consider the following aspects:
-  - Content quality, relevance, and presentation
-  - Visual design, aesthetics, and user experience
-  - Overall effectiveness in achieving the portfolio's purpose
-
-  Provide a score from 0 to 100. 100 is perfect
-  Your feedback should be actionable and specific, helping the portfolio owner to make concrete improvements.  Make sure the strengths and areas for improvement arrays are populated with strings, and the feedback is a detailed string.`,
+Based on your analysis, provide the following in your response:
+- **score:** An overall score from 0-100. Frame this as a "progress score" to encourage growth.
+- **strengths:** A list of 2-3 key things the user is doing great.
+- **areasForImprovement:** A list of 2-3 specific, actionable suggestions for what to work on next.
+- **detailedFeedback:** Break down your detailed thoughts into a list of bullet points. Start with what's working well, then gently introduce suggestions for improvement. Each point should be a string in the array. Be specific and provide examples where possible. Remember to be friendly and comforting!`,
 });
 
 const analyzePortfolioFlow = ai.defineFlow(
