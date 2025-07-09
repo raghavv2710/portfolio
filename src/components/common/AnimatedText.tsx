@@ -35,7 +35,7 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={cn("text-primary inline-block", className)}
+      className={cn("inline-block", className)}
     >
       {letters.map((letter, index) => (
         <motion.span key={index} variants={letterVariants} className="inline-block">
