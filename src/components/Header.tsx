@@ -27,7 +27,7 @@ const Header = () => {
             <nav className="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
                 <Link href="#home" className="flex items-center gap-2" aria-label="Home">
                     <Code2 className="text-primary h-8 w-8"/>
-                    <span className="font-headline text-xl font-bold">Code Craft</span>
+                    <span className="font-headline text-xl font-bold">Raghavendra</span>
                 </Link>
                 <div className="hidden md:flex items-center gap-6">
                     {navLinks.map(link => (
