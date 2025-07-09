@@ -9,7 +9,7 @@ const HeroSection = () => {
       <ThreeCanvas />
       <div className="relative z-10 flex flex-col items-center gap-6 p-4">
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-          I am <span className="text-primary"><AnimatedText text="Raghavendra" /></span>
+          I am <AnimatedText text="Raghavendra" className="text-primary" />
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-foreground/80">
           A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
