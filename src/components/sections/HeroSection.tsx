@@ -14,10 +14,10 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center justify-center text-center">
       {isMounted && <div className="thunder-effect-overlay" />}
       <div className="relative z-10 flex flex-col items-center gap-4 p-8">
-        <div className="relative h-72 w-72 mt-16">
+        <div className="relative h-48 w-48 mt-16">
           <ThreeCanvas />
         </div>
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter flex flex-wrap justify-center items-center">
