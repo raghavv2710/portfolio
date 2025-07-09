@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
 
 const containerVariants = {
   hidden: { opacity: 1 },
@@ -26,7 +25,7 @@ const letterVariants = {
   },
 };
 
-const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
+const AnimatedText = ({ text }: { text: string }) => {
   const letters = Array.from(text);
 
   return (
@@ -35,7 +34,7 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className={cn("inline-block", className)}
+      className="inline-block"
     >
       {letters.map((letter, index) => (
         <motion.span key={index} variants={letterVariants} className="inline-block">
