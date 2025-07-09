@@ -1,4 +1,5 @@
 import ThreeCanvas from '@/components/common/ThreeCanvas';
+import InteractiveText from '@/components/common/InteractiveText';
 import { Button } from '@/components/ui/button';
 import { MoveRight } from 'lucide-react';
 
@@ -7,8 +8,9 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       <ThreeCanvas />
       <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-          I am <span className="text-primary">Raghavendra</span>
+        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter flex flex-wrap justify-center">
+          <InteractiveText text="I am " />
+          <InteractiveText text="Raghavendra" className="text-primary" />
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-foreground/80">
           A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.

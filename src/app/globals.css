@@ -82,3 +82,38 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .interactive-text-wrapper {
+    @apply flex items-center justify-center select-none;
+  }
+
+  .interactive-letter-container {
+    @apply relative grid place-items-center;
+    height: 1.5em; /* Based on font size */
+    min-width: 0.5ch; /* For spaces */
+  }
+
+  .hover-wrapper {
+    @apply absolute inset-0 grid grid-rows-2 z-10;
+  }
+
+  .hover-wrapper > div {
+    @apply cursor-pointer;
+  }
+
+  .interactive-letter {
+    @apply relative top-0 transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    align-self: center; /* Center vertically in the container */
+  }
+
+  /* The hover effect */
+  .interactive-letter-container:has(.hover-top:hover) .interactive-letter {
+    top: -0.15em;
+  }
+
+  .interactive-letter-container:has(.hover-bottom:hover) .interactive-letter {
+    top: 0.15em;
+  }
+}
