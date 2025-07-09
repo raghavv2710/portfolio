@@ -39,37 +39,37 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 239 64% 27%;
-    --foreground: 0 0% 98%;
-    --card: 239 64% 30%;
-    --card-foreground: 0 0% 98%;
-    --popover: 239 64% 30%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 182 100% 74%;
-    --primary-foreground: 239 64% 10%;
-    --secondary: 239 64% 35%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 239 64% 35%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 276 100% 62%;
-    --accent-foreground: 0 0% 98%;
+    --background: 240 60% 10%; /* Darker Navy Blue */
+    --foreground: 210 40% 98%; /* Light gray/white */
+    --card: 240 60% 13%; /* Slightly lighter navy */
+    --card-foreground: 210 40% 98%;
+    --popover: 240 60% 13%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 182 100% 74%; /* Electric Blue - #7DF9FF */
+    --primary-foreground: 240 60% 5%; /* Dark for contrast on primary */
+    --secondary: 240 60% 17%; /* Lighter navy for secondary elements */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 240 60% 17%;
+    --muted-foreground: 210 40% 60%; /* Dimmer text */
+    --accent: 276 100% 62%; /* Vibrant Purple - #BE3DFF */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 239 64% 40%;
-    --input: 239 64% 40%;
-    --ring: 182 100% 74%;
+    --border: 240 60% 20%; /* Subtle navy border */
+    --input: 240 60% 20%;
+    --ring: 182 100% 74%; /* Ring should be primary color */
     --chart-1: 182 100% 74%;
     --chart-2: 276 100% 62%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 239 64% 27%;
-    --sidebar-foreground: 0 0% 98%;
+    --sidebar-background: 240 60% 10%;
+    --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 182 100% 74%;
-    --sidebar-primary-foreground: 239 64% 10%;
+    --sidebar-primary-foreground: 240 60% 5%;
     --sidebar-accent: 276 100% 62%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 239 64% 40%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 60% 20%;
     --sidebar-ring: 182 100% 74%;
   }
 }
