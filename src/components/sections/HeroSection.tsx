@@ -5,6 +5,7 @@ import InteractiveText from '@/components/common/InteractiveText';
 import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight } from 'lucide-react';
+import MagneticWrapper from '../common/MagneticWrapper';
 
 const HeroSection = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -17,9 +18,11 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       {isMounted && <div className="thunder-effect-overlay" />}
       <div className="relative z-10 flex flex-col items-center p-4">
-        <div className="relative h-56 w-56 mt-20 mb-4">
-          <ThreeCanvas />
-        </div>
+        <MagneticWrapper>
+          <div className="relative h-64 w-64 mb-4">
+            <ThreeCanvas />
+          </div>
+        </MagneticWrapper>
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter flex flex-wrap justify-center items-center">
           <InteractiveText text="Hi, I am" />
           <span className="text-accent ml-4">

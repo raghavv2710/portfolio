@@ -12,13 +12,53 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Sparkles, TrendingUp, TrendingDown, Lightbulb } from 'lucide-react';
+import { Loader2, Sparkles, TrendingUp, TrendingDown, Star, BookText, Palette, Rocket } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { cn } from '@/lib/utils';
 
-const formSchema = z.object({
-  portfolioDescription: z.string().min(50, 'Please provide a detailed description (at least 50 characters).'),
-  portfolioLink: z.string().url({ message: "Please enter a valid URL." }).optional().or(z.literal('')),
-});
+const formSchema = z
+  .object({
+    portfolioDescription: z.string().optional(),
+    portfolioLink: z.string().url({ message: 'Please enter a valid URL.' }).or(z.literal('')).optional(),
+  })
+  .refine(data => data.portfolioDescription || data.portfolioLink, {
+    message: 'Please provide either a description or a link.',
+    path: ['portfolioDescription'],
+  })
+  .refine(data => !data.portfolioDescription || data.portfolioDescription.length >= 50, {
+    message: 'Description must be at least 50 characters.',
+    path: ['portfolioDescription'],
+  });
+
+const StarRating = ({ rating, className }: { rating: number; className?: string }) => (
+  <div className={cn('flex items-center gap-0.5', className)}>
+    {[...Array(5)].map((_, i) => (
+      <Star
+        key={i}
+        className={cn('h-5 w-5', i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/50')}
+      />
+    ))}
+  </div>
+);
+
+const feedbackCategories = [
+  {
+    key: 'contentAndStorytelling',
+    title: 'Content & Storytelling',
+    icon: BookText,
+  },
+  {
+    key: 'designAndUX',
+    title: 'Design & UX',
+    icon: Palette,
+  },
+  {
+    key: 'overallImpact',
+    title: 'Overall Impact',
+    icon: Rocket,
+  },
+] as const;
+
 
 const AiAnalysisSection = () => {
   const [analysis, setAnalysis] = useState<AnalyzePortfolioOutput | null>(null);
@@ -37,7 +77,10 @@ const AiAnalysisSection = () => {
     setIsLoading(true);
     setAnalysis(null);
     try {
-      const result = await analyzePortfolio(values);
+      const result = await analyzePortfolio({
+        portfolioDescription: values.portfolioDescription || undefined,
+        portfolioLink: values.portfolioLink || undefined,
+      });
       setAnalysis(result);
     } catch (error) {
       console.error(error);
@@ -58,14 +101,14 @@ const AiAnalysisSection = () => {
           <Sparkles className="text-primary w-10 h-10" /> AI Portfolio Analysis
         </h2>
         <p className="max-w-3xl text-lg text-foreground/80">
-          Get instant feedback on your own portfolio. Describe it below and let our AI provide insights on its strengths and areas for improvement.
+          Get instant feedback on your own portfolio. Describe it or provide a link below and let our AI provide insights on its strengths and areas for improvement.
         </p>
       </div>
-      <div className="w-full max-w-2xl mx-auto grid grid-cols-1 gap-12">
+      <div className="w-full max-w-2xl mx-auto flex flex-col gap-12">
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
           <CardHeader>
             <CardTitle>Analyze Your Portfolio</CardTitle>
-            <CardDescription>Fill out the form to get started.</CardDescription>
+            <CardDescription>Fill out one of the fields below to get started.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -87,12 +130,17 @@ const AiAnalysisSection = () => {
                     </FormItem>
                   )}
                 />
+                <div className="flex items-center gap-4">
+                  <div className="flex-grow border-t border-border/50"></div>
+                  <span className="text-sm text-muted-foreground">OR</span>
+                  <div className="flex-grow border-t border-border/50"></div>
+                </div>
                 <FormField
                   control={form.control}
                   name="portfolioLink"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Portfolio Link (Optional)</FormLabel>
+                      <FormLabel>Portfolio Link</FormLabel>
                       <FormControl>
                         <Input placeholder="https://example.com" {...field} />
                       </FormControl>
@@ -133,7 +181,7 @@ const AiAnalysisSection = () => {
                 <Progress value={analysis.score} className="h-2 mt-2" indicatorClassName="bg-primary" />
               </div>
 
-              <div className="grid grid-cols-1 gap-4 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                   <div>
                       <h4 className="font-semibold flex items-center gap-2 mb-2 text-green-400"><TrendingUp /> Strengths</h4>
                       <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/80">
@@ -147,18 +195,26 @@ const AiAnalysisSection = () => {
                       </ul>
                   </div>
               </div>
-              {analysis.detailedFeedback && analysis.detailedFeedback.length > 0 && (
+              {analysis.detailedFeedback && (
                 <div className="mt-6">
-                    <h4 className="font-semibold mb-2">Detailed Feedback</h4>
-                    <div className="text-sm text-foreground/80 bg-muted/50 p-4 rounded-md">
-                      <ul className="space-y-3">
-                        {analysis.detailedFeedback.map((point, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <Lightbulb className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <h4 className="font-semibold mb-3 text-center">Detailed Feedback</h4>
+                    <div className="space-y-4">
+                      {feedbackCategories.map(cat => {
+                        const feedbackItem = analysis.detailedFeedback[cat.key];
+                        if (!feedbackItem) return null;
+                        return (
+                          <div key={cat.key} className="bg-muted/50 p-4 rounded-lg">
+                            <div className="flex items-center justify-between mb-2">
+                              <h5 className="font-headline text-lg flex items-center gap-2">
+                                <cat.icon className="w-5 h-5 text-primary" />
+                                {cat.title}
+                              </h5>
+                              <StarRating rating={feedbackItem.rating} />
+                            </div>
+                            <p className="text-sm text-foreground/80">{feedbackItem.feedback}</p>
+                          </div>
+                        )
+                      })}
                     </div>
                 </div>
               )}

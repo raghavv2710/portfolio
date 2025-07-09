@@ -25,7 +25,7 @@ const ThreeCanvas = () => {
     currentMount.appendChild(renderer.domElement);
 
     // Object
-    const geometry = new THREE.IcosahedronGeometry(2, 1);
+    const geometry = new THREE.IcosahedronGeometry(2.5, 1);
     const material = new THREE.MeshStandardMaterial({
       color: '#7DF9FF', // Electric Blue
       metalness: 0.6,
