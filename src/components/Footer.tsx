@@ -1,5 +1,9 @@
+'use client';
+
+import * as React from 'react';
+
 const Footer = () => {
-  const [year, setYear] = React.useState(new Date().getFullYear());
+  const [year, setYear] = React.useState<number | null>(null);
   
   React.useEffect(() => {
     setYear(new Date().getFullYear());
@@ -14,7 +18,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-import * as React from 'react';
 
 export default Footer;
