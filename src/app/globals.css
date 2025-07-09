@@ -46,7 +46,7 @@
     --popover: 240 60% 13%;
     --popover-foreground: 210 40% 98%;
     --primary: 182 100% 74%; /* Electric Blue - #7DF9FF */
-    --primary-foreground: 240 60% 5%; /* Dark for contrast on primary */
+    --primary-foreground: 210 40% 98%; /* Text on primary elements */
     --secondary: 240 60% 17%; /* Lighter navy for secondary elements */
     --secondary-foreground: 210 40% 98%;
     --muted: 240 60% 17%;
@@ -108,12 +108,49 @@
     align-self: center; /* Center vertically in the container */
   }
 
-  /* The hover effect */
+  /* The hover effect - INVERTED */
   .interactive-letter-container:has(.hover-top:hover) .interactive-letter {
-    top: -0.15em;
+    top: 0.15em; /* MOVES DOWN */
   }
 
   .interactive-letter-container:has(.hover-bottom:hover) .interactive-letter {
-    top: 0.15em;
+    top: -0.15em; /* MOVES UP */
   }
+
+  /* Electric animation */
+  @keyframes electric-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 4px hsl(var(--primary-foreground)),
+        0 0 11px hsl(var(--primary-foreground)),
+        0 0 19px hsl(var(--primary-foreground)),
+        0 0 40px hsl(var(--primary)),
+        0 0 80px hsl(var(--primary)),
+        0 0 90px hsl(var(--primary)),
+        0 0 100px hsl(var(--primary)),
+        0 0 150px hsl(var(--accent));
+      color: hsl(var(--primary-foreground));
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+      color: inherit;
+    }
+  }
+
+  .electric-text-container .interactive-letter {
+    animation: electric-flicker 1.5s linear 1;
+    animation-fill-mode: forwards;
+  }
+  
+  .electric-text-container .interactive-letter-container:nth-child(1) .interactive-letter { animation-delay: 0.8s; }
+  .electric-text-container .interactive-letter-container:nth-child(2) .interactive-letter { animation-delay: 0.2s; }
+  .electric-text-container .interactive-letter-container:nth-child(3) .interactive-letter { animation-delay: 1.1s; }
+  .electric-text-container .interactive-letter-container:nth-child(4) .interactive-letter { animation-delay: 0.5s; }
+  .electric-text-container .interactive-letter-container:nth-child(5) .interactive-letter { animation-delay: 1.4s; }
+  .electric-text-container .interactive-letter-container:nth-child(6) .interactive-letter { animation-delay: 0.1s; }
+  .electric-text-container .interactive-letter-container:nth-child(7) .interactive-letter { animation-delay: 0.9s; }
+  .electric-text-container .interactive-letter-container:nth-child(8) .interactive-letter { animation-delay: 0.4s; }
+  .electric-text-container .interactive-letter-container:nth-child(9) .interactive-letter { animation-delay: 1.2s; }
+  .electric-text-container .interactive-letter-container:nth-child(10) .interactive-letter { animation-delay: 0.7s; }
+  .electric-text-container .interactive-letter-container:nth-child(11) .interactive-letter { animation-delay: 0.3s; }
 }
