@@ -46,7 +46,7 @@
     --popover: 240 60% 13%;
     --popover-foreground: 210 40% 98%;
     --primary: 182 100% 74%; /* Electric Blue - #7DF9FF */
-    --primary-foreground: 210 40% 98%; /* Text on primary elements */
+    --primary-foreground: 240 60% 5%; /* Dark Navy to contrast with light primary */
     --secondary: 240 60% 17%; /* Lighter navy for secondary elements */
     --secondary-foreground: 210 40% 98%;
     --muted: 240 60% 17%;
