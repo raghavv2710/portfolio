@@ -36,7 +36,9 @@ const HeroSection = () => {
               animate="visible"
             >
               <AnimatedText text="Hi, I am " className="inline-block" />
-              <AnimatedText text="Raghavendra" className="text-accent inline-block" />
+              <span className="text-accent">
+                <AnimatedText text="Raghavendra" className="inline-block" />
+              </span>
             </motion.h1>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
