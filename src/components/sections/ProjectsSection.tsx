@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const projects = [
   {
@@ -30,6 +37,30 @@ const projects = [
     githubUrl: "#",
     tags: ["Next.js", "Stripe", "TailwindCSS"],
   },
+  {
+    title: "AI-Powered Chatbot",
+    description: "A conversational AI chatbot integrated into a customer service platform, using Genkit for natural language processing.",
+    imageHint: "chatbot interface",
+    liveUrl: "#",
+    githubUrl: "#",
+    tags: ["Genkit", "AI", "Next.js"],
+  },
+  {
+    title: "Real-time Collab Editor",
+    description: "A collaborative document editor similar to Google Docs, built with WebSockets for real-time synchronization.",
+    imageHint: "text editor",
+    liveUrl: "#",
+    githubUrl: "#",
+    tags: ["WebSockets", "Node.js", "React"],
+  },
+  {
+    title: "Personal Blog Platform",
+    description: "A fully-featured blogging platform with a Markdown editor, comments, and a custom-built CMS.",
+    imageHint: "blog layout",
+    liveUrl: "#",
+    githubUrl: "#",
+    tags: ["React", "Express", "PostgreSQL"],
+  },
 ];
 
 const ProjectsSection = () => {
@@ -41,40 +72,54 @@ const ProjectsSection = () => {
           Here are some of the projects I've worked on, showcasing my skills in action.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col">
-            <CardHeader className="p-0">
-              <div className="relative h-48 w-full">
-                <Image
-                  src={`https://placehold.co/600x400.png`}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  data-ai-hint={project.imageHint}
-                />
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full max-w-xs sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto"
+      >
+        <CarouselContent>
+          {projects.map((project, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1 h-full">
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col h-full">
+                  <CardHeader className="p-0">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={`https://placehold.co/600x400.png`}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        data-ai-hint={project.imageHint}
+                      />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6 flex-grow">
+                    <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+                    <CardDescription className="mt-2 text-foreground/70">{project.description}</CardDescription>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <Badge key={tag} variant="secondary" className="text-primary-foreground bg-primary/20 text-primary border-none">{tag}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex justify-end gap-2 p-4 mt-auto">
+                    <Button variant="ghost" size="icon" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
+                    </Button>
+                    <Button variant="ghost" size="icon" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
+                    </Button>
+                  </CardFooter>
+                </Card>
               </div>
-            </CardHeader>
-            <CardContent className="p-6 flex-grow">
-              <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
-              <CardDescription className="mt-2 text-foreground/70">{project.description}</CardDescription>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <Badge key={tag} variant="secondary" className="text-primary-foreground bg-primary/20 text-primary border-none">{tag}</Badge>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-end gap-2 p-4">
-              <Button variant="ghost" size="icon" asChild>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </SectionWrapper>
   );
 };
