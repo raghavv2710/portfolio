@@ -116,9 +116,9 @@
 }
 
 .canyon-char-container .canyon-hover-trigger-top:hover ~ .canyon-char {
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -75%);
 }
 
 .canyon-char-container .canyon-hover-trigger-bottom:hover ~ .canyon-char {
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -25%);
 }
