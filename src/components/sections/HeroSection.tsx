@@ -8,10 +8,10 @@ const HeroSection = () => {
       <ThreeCanvas />
       <div className="relative z-10 flex flex-col items-center gap-6 p-4">
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-          <span className="text-primary">Code</span> Canvas
+          <span className="text-primary">Code</span> Craft
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-foreground/80">
-          A futuristic portfolio where technology meets creativity. I'm a passionate developer crafting visually stunning and interactive web experiences.
+          A futuristic portfolio where technology meets creativity. I'm Raghavendra, a passionate developer crafting visually stunning and interactive web experiences.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" asChild>
