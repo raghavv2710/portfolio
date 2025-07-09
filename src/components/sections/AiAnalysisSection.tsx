@@ -61,7 +61,7 @@ const AiAnalysisSection = () => {
           Get instant feedback on your own portfolio. Describe it below and let our AI provide insights on its strengths and areas for improvement.
         </p>
       </div>
-      <div className="w-full max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
+      <div className="w-full max-w-2xl mx-auto grid grid-cols-1 gap-12">
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
           <CardHeader>
             <CardTitle>Analyze Your Portfolio</CardTitle>

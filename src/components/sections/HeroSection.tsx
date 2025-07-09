@@ -14,10 +14,10 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center text-center">
+    <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       {isMounted && <div className="thunder-effect-overlay" />}
-      <div className="relative z-10 flex flex-col items-center gap-4 p-8">
-        <div className="relative h-48 w-48 mt-16">
+      <div className="relative z-10 flex flex-col items-center p-4">
+        <div className="relative h-56 w-56 mt-20 mb-4">
           <ThreeCanvas />
         </div>
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter flex flex-wrap justify-center items-center">
@@ -26,10 +26,10 @@ const HeroSection = () => {
             <InteractiveText text="Raghavendra" />
           </span>
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl text-foreground/80">
+        <p className="max-w-2xl text-lg md:text-xl text-foreground/80 mt-4">
           A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button size="lg" asChild>
             <a href="#projects">
               View My Work <MoveRight className="ml-2" />

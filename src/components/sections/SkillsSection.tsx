@@ -33,19 +33,21 @@ const SkillsSection = () => {
           A collection of technologies and tools I use to build my digital creations.
         </p>
       </div>
-      <Card className="w-full max-w-4xl mx-auto bg-card/50 backdrop-blur-sm border-primary/20">
-        <CardContent className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skills.map((skill) => (
-            <div key={skill.name} className="space-y-2">
-              <div className="flex justify-between">
-                <h3 className="text-lg font-medium">{skill.name}</h3>
-                <span className="text-primary font-semibold">{skill.level}%</span>
+      <div className="flex justify-center">
+        <Card className="w-full max-w-4xl bg-card/50 backdrop-blur-sm border-primary/20">
+          <CardContent className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {skills.map((skill) => (
+              <div key={skill.name} className="space-y-2">
+                <div className="flex justify-between">
+                  <h3 className="text-lg font-medium">{skill.name}</h3>
+                  <span className="text-primary font-semibold">{skill.level}%</span>
+                </div>
+                <Progress value={progressValues[skill.name] || 0} className="h-3 [&>div]:bg-primary transition-all duration-1000 ease-out" />
               </div>
-              <Progress value={progressValues[skill.name] || 0} className="h-3 [&>div]:bg-primary transition-all duration-1000 ease-out" />
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
     </SectionWrapper>
   );
 };
