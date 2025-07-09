@@ -33,7 +33,7 @@ const SkillsSection = () => {
           A collection of technologies and tools I use to build my digital creations.
         </p>
       </div>
-      <Card className="w-full max-w-4xl bg-card/50 backdrop-blur-sm border-primary/20">
+      <Card className="w-full max-w-4xl mx-auto bg-card/50 backdrop-blur-sm border-primary/20">
         <CardContent className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
           {skills.map((skill) => (
             <div key={skill.name} className="space-y-2">
