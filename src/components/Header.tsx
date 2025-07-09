@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Button } from "./ui/button";
 import Link from 'next/link';
 import { Code2 } from 'lucide-react';
-import MagneticWrapper from './common/MagneticWrapper';
 import { ThemeToggle } from './common/ThemeToggle';
 
 const navLinks = [
@@ -33,11 +32,9 @@ const Header = () => {
                 </Link>
                 <div className="hidden md:flex items-center gap-6">
                     {navLinks.map(link => (
-                        <MagneticWrapper key={link.name} particleCount={20}>
-                          <Link href={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                              {link.name}
-                          </Link>
-                        </MagneticWrapper>
+                      <Link href={link.href} key={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors nav-link-hover">
+                          {link.name}
+                      </Link>
                     ))}
                 </div>
                 <div className="flex items-center gap-2">

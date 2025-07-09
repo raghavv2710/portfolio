@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
 import { motion } from 'framer-motion';
+import AnimatedText from '../common/AnimatedText';
 
 const sentence = {
   hidden: { opacity: 1 },
@@ -33,7 +34,7 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
       <div className="relative z-10 flex flex-col items-center p-4">
-        <MagneticWrapper particleCount={300}>
+        <MagneticWrapper particleCount={200}>
           <div className="relative h-64 w-64">
             <ThreeCanvas />
           </div>
@@ -45,20 +46,10 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
             >
-              {line1.split("").map((char, index) => (
-                <motion.span key={char + "-" + index} variants={letter} className="inline-block">
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-              <span className="text-accent inline-block">
-                {line2.split("").map((char, index) => (
-                  <motion.span key={char + "-" + index} variants={letter} className="inline-block">
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
+              <AnimatedText text="Hi, I am " className="inline-block" />
+              <AnimatedText text="Raghavendra" className="text-accent inline-block" />
             </motion.h1>
-            <p className="max-w-2xl text-lg md:text-xl text-foreground/80 mt-4">
+            <p className="max-w-2xl text-lg md:text-xl text-foreground/80 mt-4 text-center">
             A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
             </p>
         </div>
