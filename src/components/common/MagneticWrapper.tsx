@@ -19,11 +19,11 @@ const MagneticWrapper = ({ children, className }: MagneticWrapperProps) => {
       particleField.removeChild(particleField.firstChild);
     }
     
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 200; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
-      particle.style.setProperty('--x', `${Math.random() * 150 - 75}px`);
-      particle.style.setProperty('--y', `${Math.random() * 150 - 75}px`);
+      particle.style.setProperty('--x', `${Math.random() * 100 - 50}px`);
+      particle.style.setProperty('--y', `${Math.random() * 100 - 50}px`);
       particle.style.animation = `particleFloat ${2 + Math.random() * 2}s infinite`;
       particle.style.animationDelay = `${Math.random() * -2}s`;
       particle.style.left = `${Math.random() * 100}%`;
