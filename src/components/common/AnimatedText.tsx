@@ -1,65 +1,48 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const letterVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1,
+    },
+  },
+};
+
 const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
-  const [displayText, setDisplayText] = useState('');
-  const [isAnimating, setIsAnimating] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  const scramble = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    
-    let iteration = 0;
-    
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    
-    intervalRef.current = setInterval(() => {
-      const newText = text
-        .split("")
-        .map((_letter, index) => {
-          if(index < iteration) {
-            return text[index];
-          }
-        
-          return letters[Math.floor(Math.random() * letters.length)]
-        })
-        .join("");
-        
-      setDisplayText(newText);
-      
-      if(iteration >= text.length){
-        if (intervalRef.current) clearInterval(intervalRef.current);
-        setIsAnimating(false);
-      }
-      
-      iteration += 1 / 3;
-    }, 30);
-  };
-
-  useEffect(() => {
-    // Initial animation on mount
-    scramble();
-    
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [text]); // Re-run if text prop changes
-
+  const letters = Array.from(text);
 
   return (
-    <span
-      onMouseEnter={scramble}
-      className={cn("text-primary font-headline tracking-tighter", className)}
+    <motion.span
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={cn("text-primary inline-block", className)}
     >
-      {displayText}
-    </span>
+      {letters.map((letter, index) => (
+        <motion.span key={index} variants={letterVariants} className="inline-block">
+          {letter === ' ' ? '\u00A0' : letter}
+        </motion.span>
+      ))}
+    </motion.span>
   );
 };
 
