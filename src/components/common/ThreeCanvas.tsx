@@ -70,13 +70,13 @@ const ThreeCanvas = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      if(currentMount) {
+      if (currentMount && renderer.domElement) {
         currentMount.removeChild(renderer.domElement);
       }
     };
   }, []);
 
-  return <div ref={mountRef} className="absolute inset-0 z-0" />;
+  return <div ref={mountRef} className="h-full w-full" />;
 };
 
 export default ThreeCanvas;
