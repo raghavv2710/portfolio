@@ -6,9 +6,11 @@ import { cn } from '@/lib/utils';
 type MagneticWrapperProps = {
   children: React.ReactNode;
   className?: string;
+  particleCount?: number;
 };
 
-const MagneticWrapper = ({ children, className }: MagneticWrapperProps) => {
+// Default particle count is now low (20) for the nav bar.
+const MagneticWrapper = ({ children, className, particleCount = 20 }: MagneticWrapperProps) => {
   const particleFieldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,9 +21,10 @@ const MagneticWrapper = ({ children, className }: MagneticWrapperProps) => {
       particleField.removeChild(particleField.firstChild);
     }
     
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
+      // Keep radius tighter for a denser feel
       particle.style.setProperty('--x', `${Math.random() * 100 - 50}px`);
       particle.style.setProperty('--y', `${Math.random() * 100 - 50}px`);
       particle.style.animation = `particleFloat ${2 + Math.random() * 2}s infinite`;
@@ -30,7 +33,7 @@ const MagneticWrapper = ({ children, className }: MagneticWrapperProps) => {
       particle.style.top = `${Math.random() * 100}%`;
       particleField.appendChild(particle);
     }
-  }, []);
+  }, [particleCount]);
 
   return (
     <div className={cn('magnetic-container', className)}>

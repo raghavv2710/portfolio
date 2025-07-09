@@ -17,8 +17,8 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       {isMounted && <div className="thunder-effect-overlay" />}
-      <div className="relative z-10 flex flex-col items-center p-4 mt-16">
-        <MagneticWrapper>
+      <div className="relative z-10 flex flex-col items-center p-4">
+        <MagneticWrapper particleCount={300}>
           <div className="relative h-64 w-64">
             <ThreeCanvas />
           </div>
@@ -34,19 +34,21 @@ const HeroSection = () => {
             A passionate developer crafting visually stunning and interactive web experiences where technology meets creativity.
             </p>
         </div>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Button size="lg" asChild>
-            <a href="#projects">
-              View My Work <MoveRight className="ml-2" />
-            </a>
-          </Button>
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" asChild>
+              <a href="#projects">
+                View My Work <MoveRight className="ml-2" />
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="#contact">Get In Touch</a>
+            </Button>
+          </div>
           <Button size="lg" variant="outline" asChild>
-            <a href="#" download>
+            <a href="/resume.pdf" download>
               Download Resume <Download className="ml-2" />
             </a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href="#contact">Get In Touch</a>
           </Button>
         </div>
       </div>
