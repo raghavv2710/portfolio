@@ -18,11 +18,6 @@ const ThreeCanvas = () => {
     const primaryColor = computedStyle.getPropertyValue('--primary').trim();
     const accentColor = computedStyle.getPropertyValue('--accent').trim();
     
-    // Determine globe color based on theme
-    const globeBaseColor = resolvedTheme === 'dark'
-      ? `hsl(${primaryColor})`
-      : 'hsl(245 80% 20%)'; // Vibrant dark violet-blue for light mode
-
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
@@ -38,12 +33,19 @@ const ThreeCanvas = () => {
     // Main Globe
     const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
-      color: globeBaseColor,
+      color: resolvedTheme === 'light' ? 'hsl(245 80% 20%)' : 0x000000, // placeholder, will override via setHSL
       metalness: 0.6,
       roughness: 0.4,
       wireframe: true,
     });
     const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    
+    // Use setHSL to apply electric blue in dark mode
+    if (resolvedTheme === 'dark') {
+      const [h, s, l] = primaryColor.split(' ').map(parseFloat);
+      globeMaterial.color.setHSL(h / 360, s / 100, l / 100); // HSL expects [0–1] range
+    }
+
     globe.scale.set(1.8, 1.8, 1.8);
     scene.add(globe);
 
