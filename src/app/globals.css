@@ -196,11 +196,11 @@
   }
   
   .canyon-hover div:nth-child(1):hover ~ h1 {
-    transform: translateY(-50%) translateY(-10px);
+    transform: translateY(-50%) translateY(10px);
   }
   
   .canyon-hover div:nth-child(2):hover ~ h1 {
-    transform: translateY(-50%) translateY(10px);
+    transform: translateY(-50%) translateY(-10px);
   }
   
   .canyon-hover h1 {

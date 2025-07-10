@@ -21,7 +21,7 @@ const InteractiveText = () => {
           <div className="canyon-hover" key={index}>
             <div></div>
             <div></div>
-            <h1 className={cn(isName && "canyon-raghavendra")}>{char}</h1>
+            <h1 className={cn("canyon-raghavendra")}>{char}</h1>
           </div>
         );
       })}
