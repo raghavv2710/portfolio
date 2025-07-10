@@ -181,12 +181,10 @@
     position: relative;
     display: grid;
     place-items: center;
-    /* Adjust height based on font size */
     height: 100px;
-    flex: 1;
   }
   
-  .canyon-letter-container .canyon-hover-triggers {
+  .canyon-triggers {
     position: absolute;
     inset: 0;
     display: grid;
@@ -194,14 +192,11 @@
     z-index: 10;
   }
 
-  /* Right side hover */
-  .canyon-hover-triggers div:nth-child(2):hover ~ .canyon-letter {
-    transform: translateX(10px);
-  }
-  
-  /* Left side hover */
-  .canyon-hover-triggers div:nth-child(1):hover ~ .canyon-letter {
+  .canyon-triggers-left:hover + .canyon-letter {
     transform: translateX(-10px);
+  }
+  .canyon-triggers-right:hover + .canyon-letter {
+    transform: translateX(10px);
   }
 
   .canyon-letter {
@@ -209,13 +204,13 @@
     font-weight: inherit;
     font-size: inherit;
     color: inherit;
-    transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 5;
     position: relative;
   }
 
-  .canyon-letter.canyon-space {
-    width: 0.5ch; /* Width of a space character */
+  .canyon-space {
+    width: 0.5ch;
   }
 
   .canyon-raghavendra {

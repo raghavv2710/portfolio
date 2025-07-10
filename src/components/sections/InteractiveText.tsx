@@ -13,10 +13,10 @@ const InteractiveText = () => {
         const isName = index >= "Hi, I am ".length;
         
         return (
-          <span key={index} className="canyon-letter-container">
-            <div className="canyon-hover-triggers">
-              <div></div>
-              <div></div>
+          <div key={index} className="canyon-letter-container">
+            <div className="canyon-triggers">
+              <div className="canyon-triggers-left"></div>
+              <div className="canyon-triggers-right"></div>
             </div>
             <span
               className={cn(
@@ -27,7 +27,7 @@ const InteractiveText = () => {
             >
               {isSpace ? '\u00A0' : letter}
             </span>
-          </span>
+          </div>
         );
       })}
     </h1>
