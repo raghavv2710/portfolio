@@ -181,7 +181,7 @@
     position: relative;
     display: grid;
     place-items: center;
-    height: 100px;
+    height: 100px; /* Provides consistent height for triggers */
   }
   
   .canyon-triggers {
@@ -192,12 +192,12 @@
     z-index: 10;
   }
 
-  /* Inverted effect */
   .canyon-triggers-top:hover ~ .canyon-letter {
-    transform: translateY(10px);
-  }
-  .canyon-triggers-bottom:hover ~ .canyon-letter {
     transform: translateY(-10px);
+  }
+
+  .canyon-triggers-bottom:hover ~ .canyon-letter {
+    transform: translateY(10px);
   }
 
   .canyon-letter {
