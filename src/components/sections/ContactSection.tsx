@@ -13,7 +13,7 @@ const ContactSection = () => {
       </div>
       <div className="flex flex-col items-center gap-6">
         <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-          <a href="mailto:hello@example.com">
+          <a href="mailto:raghavv2710@gmail.com">
             <Mail className="mr-2"/> Say Hello
           </a>
         </Button>
