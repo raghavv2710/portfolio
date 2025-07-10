@@ -65,7 +65,7 @@ const ProjectsSection = () => {
           Here are some of the projects I've worked on, showcasing my skills in action.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col h-full">
             <CardHeader className="p-0">

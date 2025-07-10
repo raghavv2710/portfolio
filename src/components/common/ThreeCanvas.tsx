@@ -2,14 +2,22 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useTheme } from 'next-themes';
 
 const ThreeCanvas = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (!mountRef.current) return;
 
     const currentMount = mountRef.current;
+    
+    // Get colors from CSS variables
+    const computedStyle = getComputedStyle(document.documentElement);
+    const primaryColor = computedStyle.getPropertyValue('--primary').trim();
+    const accentColor = computedStyle.getPropertyValue('--accent').trim();
+    const foregroundColor = computedStyle.getPropertyValue('--foreground').trim();
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -26,7 +34,7 @@ const ThreeCanvas = () => {
     // Main Globe
     const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
-      color: '#7DF9FF', // Electric Blue
+      color: `hsl(${foregroundColor})`,
       metalness: 0.6,
       roughness: 0.4,
       wireframe: true,
@@ -39,11 +47,11 @@ const ThreeCanvas = () => {
     const ambientLight = new THREE.AmbientLight(0xffffff, 4.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xBE3DFF, 850, 100); // Vibrant Purple
+    const pointLight = new THREE.PointLight(`hsl(${accentColor})`, 850, 100);
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
     
-    const pointLight2 = new THREE.PointLight(0x7DF9FF, 850, 100); // Electric Blue
+    const pointLight2 = new THREE.PointLight(`hsl(${primaryColor})`, 850, 100);
     pointLight2.position.set(-5, -5, -5);
     scene.add(pointLight2);
 
@@ -76,7 +84,7 @@ const ThreeCanvas = () => {
         currentMount.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, [theme]); // Re-run effect when theme changes
 
   return <div ref={mountRef} className="h-full w-full" />;
 };

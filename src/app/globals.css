@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --background: 40 50% 98%; /* Light Beige */
-    --foreground: 25 25% 25%; /* Dark, warm gray */
+    --foreground: 25 25% 15%; /* Darker, warm gray for better contrast */
     --card: 40 50% 100%;
-    --card-foreground: 25 25% 25%;
+    --card-foreground: 25 25% 15%;
     --popover: 40 50% 100%;
-    --popover-foreground: 25 25% 25%;
+    --popover-foreground: 25 25% 15%;
     --primary: 158 26% 47%; /* Sage Green */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 40 30% 94%;
-    --secondary-foreground: 25 25% 35%;
+    --secondary-foreground: 25 25% 25%;
     --muted: 40 30% 94%;
     --muted-foreground: 25 25% 45%;
     --accent: 20 80% 55%; /* Burnt Sienna */
@@ -109,7 +109,7 @@
     position: absolute;
     width: 3px;
     height: 3px;
-    background: hsl(var(--primary)); /* Use primary color */
+    background: hsl(var(--foreground)); /* Use foreground color */
     border-radius: 50%;
     animation-name: particleFloat;
     animation-timing-function: ease-in-out;
@@ -170,7 +170,7 @@
       background: hsl(var(--primary));
   }
 
-  .letter-container {
+.letter-container {
   @apply relative flex flex-col justify-between cursor-pointer;
   width: 32px;
   height: 80px;
