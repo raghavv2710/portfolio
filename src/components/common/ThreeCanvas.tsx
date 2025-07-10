@@ -11,6 +11,11 @@ const ThreeCanvas = () => {
 
     const currentMount = mountRef.current;
 
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
+    currentMount.appendChild(renderer.domElement);
+
     // Scene
     const scene = new THREE.Scene();
 
@@ -19,7 +24,7 @@ const ThreeCanvas = () => {
     camera.position.z = 5;
 
     // Main Globe
-    const globeGeometry = new THREE.IcosahedronGeometry(1.8, 1);
+    const globeGeometry = new THREE.IcosahedronGeometry(2.1, 2);
     const globeMaterial = new THREE.MeshStandardMaterial({
       color: '#7DF9FF', // Electric Blue
       metalness: 0.6,
