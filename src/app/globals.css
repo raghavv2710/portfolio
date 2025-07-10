@@ -168,4 +168,55 @@
       left: 0;
       background: hsl(var(--primary));
   }
+
+  /* Canyon Effect Styles */
+  .canyon-word {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.1em; /* Adjust gap between letters */
+    min-height: 100px; /* Ensure container has height */
+  }
+  
+  .letter-container {
+    position: relative;
+    width: 40px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .top-trigger,
+  .bottom-trigger {
+    height: 50%;
+    width: 100%;
+    z-index: 2; /* Make sure triggers are on top */
+  }
+  
+  .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 3rem; /* Adjust font size */
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none; /* The letter itself shouldn't capture mouse events */
+  }
+
+  .letter-container:nth-child(n+10) > .letter {
+    color: hsl(var(--primary));
+  }
+  
+  .top-trigger:hover ~ .letter {
+    transform: translate(-50%, -60%);
+  }
+  
+  .bottom-trigger:hover ~ .letter {
+    transform: translate(-50%, -40%);
+  }
 }
