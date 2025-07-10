@@ -1,12 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
+import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // This effect runs only on the client
+    if (sessionStorage.getItem('heroAnimationPlayed')) {
+      setAnimate(false);
+    } else {
+      setAnimate(true);
+      sessionStorage.setItem('heroAnimationPlayed', 'true');
+    }
+  }, []);
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="relative z-10 flex flex-col items-center p-4">
@@ -16,7 +29,12 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-6xl md:text-7xl font-bold text-foreground max-w-6xl tracking-tight -mt-10">
+        <h1 
+          className={cn(
+            "font-headline text-6xl md:text-7xl font-bold text-foreground max-w-6xl tracking-tight -mt-10",
+            animate ? "typewriter-effect" : "typewriter-effect no-anim"
+          )}
+        >
           Hi, I am <span className="text-primary">Raghavendra</span>
         </h1>
         
