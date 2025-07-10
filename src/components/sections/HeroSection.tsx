@@ -16,7 +16,7 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-7xl md:text-8xl font-bold -mt-16 text-foreground max-w-5xl tracking-tight">
+        <h1 className="font-headline text-7xl md:text-8xl font-bold -mt-12 text-foreground max-w-5xl tracking-tight">
           Hi, I am Raghavendra
         </h1>
         
