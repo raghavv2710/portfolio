@@ -107,9 +107,9 @@
 
   .particle {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background: hsl(var(--foreground)); /* Use foreground color for particles */
+    width: 3px;
+    height: 3px;
+    background: hsl(var(--accent)); /* Shiny Orange for light mode */
     border-radius: 50%;
     animation-name: particleFloat;
     animation-timing-function: ease-in-out;
@@ -117,6 +117,8 @@
   }
   
   .dark .particle {
+    width: 4px;
+    height: 4px;
     background: hsl(var(--accent)); /* Use accent color for particles in dark mode */
   }
 
@@ -194,7 +196,7 @@
 }
 
 .name-highlight .letter {
-  color: hsl(var(--primary));
+  color: hsl(0, 50%, 40%); /* Dark Red for light mode */
 }
 
 .dark .name-highlight .letter {
