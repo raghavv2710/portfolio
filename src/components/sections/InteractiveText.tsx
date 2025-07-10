@@ -8,9 +8,9 @@ const InteractiveText = () => {
   const nameStartIndex = "Hi, I am ".length;
 
   return (
-    <h1 className="font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight canyon-word">
-      {letters.map((letter, index) => {
-        const isSpace = letter === ' ';
+    <div className="canyon-word">
+      {letters.map((char, index) => {
+        const isSpace = char === ' ';
         const isName = index >= nameStartIndex;
 
         if (isSpace) {
@@ -18,23 +18,14 @@ const InteractiveText = () => {
         }
         
         return (
-          <div key={index} className="canyon-letter-container">
-            <div className="canyon-triggers">
-              <div className="canyon-triggers-top" />
-              <div className="canyon-triggers-bottom" />
-            </div>
-            <span
-              className={cn(
-                "canyon-letter",
-                isName && "canyon-raghavendra"
-              )}
-            >
-              {letter}
-            </span>
+          <div className="canyon-hover" key={index}>
+            <div></div>
+            <div></div>
+            <h1 className={cn(isName && "canyon-raghavendra")}>{char}</h1>
           </div>
         );
       })}
-    </h1>
+    </div>
   );
 };
 
