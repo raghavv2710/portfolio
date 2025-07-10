@@ -12,6 +12,10 @@ const InteractiveText = () => {
       {letters.map((letter, index) => {
         const isSpace = letter === ' ';
         const isName = index >= nameStartIndex;
+
+        if (isSpace) {
+          return <div key={index} className="canyon-space" />;
+        }
         
         return (
           <div key={index} className="canyon-letter-container">
@@ -22,11 +26,10 @@ const InteractiveText = () => {
             <span
               className={cn(
                 "canyon-letter",
-                isSpace && "canyon-space",
                 isName && "canyon-raghavendra"
               )}
             >
-              {isSpace ? '\u00A0' : letter}
+              {letter}
             </span>
           </div>
         );
