@@ -188,15 +188,15 @@
     position: absolute;
     inset: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     z-index: 10;
   }
 
-  .canyon-triggers-left:hover + .canyon-letter {
-    transform: translateX(-10px);
+  .canyon-triggers-top:hover ~ .canyon-letter {
+    transform: translateY(-10px);
   }
-  .canyon-triggers-right:hover + .canyon-letter {
-    transform: translateX(10px);
+  .canyon-triggers-bottom:hover ~ .canyon-letter {
+    transform: translateY(10px);
   }
 
   .canyon-letter {

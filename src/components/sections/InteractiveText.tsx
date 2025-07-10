@@ -15,8 +15,8 @@ const InteractiveText = () => {
         return (
           <div key={index} className="canyon-letter-container">
             <div className="canyon-triggers">
-              <div className="canyon-triggers-left"></div>
-              <div className="canyon-triggers-right"></div>
+              <div className="canyon-triggers-top"></div>
+              <div className="canyon-triggers-bottom"></div>
             </div>
             <span
               className={cn(
