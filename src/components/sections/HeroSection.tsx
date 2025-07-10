@@ -5,8 +5,11 @@ import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
+import InteractiveLetter from '../common/InteractiveLetter';
 
 const HeroSection = () => {
+  const name = "Raghavendra";
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="relative z-10 flex flex-col items-center p-4">
@@ -16,10 +19,17 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <div className="mt-[-2.5rem] pb-2">
-            <h1 className="font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight select-none">
-                Hi, I am <span className="text-primary">Raghavendra</span>
+        <div className="mt-[-2.5rem] pb-2 text-center">
+            <h1 className="font-headline text-4xl md:text-5xl font-bold text-foreground tracking-tight select-none mb-2">
+                Hi, I am
             </h1>
+            <div className="flex justify-center">
+              {name.split('').map((letter, index) => (
+                <InteractiveLetter key={index}>
+                  {letter}
+                </InteractiveLetter>
+              ))}
+            </div>
         </div>
         
         <div className="mt-8 flex flex-col items-center gap-4">

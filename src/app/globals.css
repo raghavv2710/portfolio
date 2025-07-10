@@ -168,4 +168,38 @@
       left: 0;
       background: hsl(var(--primary));
   }
+
+  /* Interactive Letter (Canyon) Effect */
+  .interactive-letter-container {
+    flex: 1;
+    display: grid;
+    height: 100px; /* Adjust height as needed */
+    grid: repeat(2, 2fr) / 100%;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .interactive-letter-container div {
+    position: relative;
+    z-index: 5;
+  }
+
+  .interactive-letter-container div:nth-child(1):hover ~ h1 {
+    transform: translateY(-20px);
+  }
+
+  .interactive-letter-container div:nth-child(2):hover ~ h1 {
+    transform: translateY(20px);
+  }
+
+  .interactive-letter-container h1 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+  }
 }
