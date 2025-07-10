@@ -65,39 +65,41 @@ const ProjectsSection = () => {
           Here are some of the projects I've worked on, showcasing my skills in action.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col h-full">
-            <CardHeader className="p-0">
-              <div className="relative h-48 w-full">
-                <Image
-                  src={`https://placehold.co/600x400.png`}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  data-ai-hint={project.imageHint}
-                />
-              </div>
-            </CardHeader>
-            <CardContent className="p-6 flex-grow">
-              <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
-              <CardDescription className="mt-2 text-foreground/70">{project.description}</CardDescription>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <Badge key={tag} variant="secondary" className="text-primary-foreground bg-primary/20 text-primary border-none">{tag}</Badge>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-end gap-2 p-4 mt-auto">
-              <Button variant="ghost" size="icon" asChild>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col h-full">
+              <CardHeader className="p-0">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={`https://placehold.co/600x400.png`}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    data-ai-hint={project.imageHint}
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="p-6 flex-grow">
+                <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+                <CardDescription className="mt-2 text-foreground/70">{project.description}</CardDescription>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map(tag => (
+                    <Badge key={tag} variant="secondary" className="text-primary-foreground bg-primary/20 text-primary border-none">{tag}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-end gap-2 p-4 mt-auto">
+                <Button variant="ghost" size="icon" asChild>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
+                </Button>
+                <Button variant="ghost" size="icon" asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );

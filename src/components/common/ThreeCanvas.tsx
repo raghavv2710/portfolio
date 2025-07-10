@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 
 const ThreeCanvas = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -17,7 +17,9 @@ const ThreeCanvas = () => {
     const computedStyle = getComputedStyle(document.documentElement);
     const primaryColor = computedStyle.getPropertyValue('--primary').trim();
     const accentColor = computedStyle.getPropertyValue('--accent').trim();
-    const foregroundColor = computedStyle.getPropertyValue('--foreground').trim();
+    
+    // Determine globe color based on theme
+    const globeBaseColor = resolvedTheme === 'dark' ? 'hsl(210 40% 98%)' : 'hsl(276 50% 25%)'; // Dark Violet for light mode
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -34,7 +36,7 @@ const ThreeCanvas = () => {
     // Main Globe
     const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
-      color: `hsl(${foregroundColor})`,
+      color: globeBaseColor,
       metalness: 0.6,
       roughness: 0.4,
       wireframe: true,
@@ -84,7 +86,7 @@ const ThreeCanvas = () => {
         currentMount.removeChild(renderer.domElement);
       }
     };
-  }, [theme]); // Re-run effect when theme changes
+  }, [resolvedTheme]); // Re-run effect when theme changes
 
   return <div ref={mountRef} className="h-full w-full" />;
 };
