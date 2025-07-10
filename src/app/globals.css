@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 40 50% 98%; /* Light Beige */
+    --background: 40 50% 96%; /* Softer, warmer off-white */
     --foreground: 25 25% 15%; /* Darker, warm gray for better contrast */
     --card: 40 50% 100%;
     --card-foreground: 25 25% 15%;
@@ -109,7 +109,7 @@
     position: absolute;
     width: 3px;
     height: 3px;
-    background: hsl(var(--foreground)); /* Use foreground color */
+    background: hsl(var(--accent)); /* Use accent color for particles */
     border-radius: 50%;
     animation-name: particleFloat;
     animation-timing-function: ease-in-out;
