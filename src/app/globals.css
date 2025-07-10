@@ -20,7 +20,7 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 20% 70%; /* Darker, more defined border */
+    --border: 25 25% 45%; /* Darker, warm brown for borders */
     --input: 40 20% 80%;
     --ring: 158 26% 47%;
     --chart-1: 158 26% 47%;
