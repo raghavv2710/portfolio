@@ -24,7 +24,7 @@ const ThreeCanvas = () => {
     camera.position.z = 5;
 
     // Main Globe
-    const globeGeometry = new THREE.IcosahedronGeometry(2.5, 1);
+    const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
       color: '#7DF9FF', // Electric Blue
       metalness: 0.6,
