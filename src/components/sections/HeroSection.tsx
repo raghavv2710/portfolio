@@ -35,7 +35,7 @@ const HeroSection = () => {
             animate ? "typewriter-effect" : "typewriter-effect no-anim"
           )}
         >
-          Hi, I am <span className="text-accent">Raghavendra</span>
+          Hi, I am <span className="text-primary">Raghavendra</span>
         </h1>
         
         <div className="mt-8 flex flex-col items-center gap-4">
