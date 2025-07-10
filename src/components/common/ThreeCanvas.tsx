@@ -19,7 +19,9 @@ const ThreeCanvas = () => {
     const accentColor = computedStyle.getPropertyValue('--accent').trim();
     
     // Determine globe color based on theme
-    const globeBaseColor = resolvedTheme === 'dark' ? `hsl(${primaryColor})` : 'hsl(276 50% 25%)'; // Dark Violet for light mode
+    const globeBaseColor = resolvedTheme === 'dark'
+      ? `hsl(${primaryColor})`
+      : 'hsl(245 80% 20%)'; // Vibrant dark violet-blue for light mode
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
