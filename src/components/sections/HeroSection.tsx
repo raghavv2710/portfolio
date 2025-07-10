@@ -16,24 +16,24 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-7xl md:text-8xl font-bold -mt-12 text-foreground max-w-5xl tracking-tight">
+        <h1 className="font-headline text-5xl md:text-6xl font-bold -mt-10 text-foreground max-w-5xl tracking-tight">
           Hi, I am Raghavendra
         </h1>
         
         <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="sm" className="text-sm">
+            <Button asChild size="default">
               <a href="#projects">
-                View My Work <MoveRight className="ml-2" />
+                View My Work <MoveRight />
               </a>
             </Button>
-            <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground text-sm">
+            <Button asChild size="default" className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href="#contact">Get In Touch</a>
             </Button>
           </div>
-          <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground text-sm">
+          <Button asChild size="default" className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <a href="/resume.pdf" download>
-              Download Resume <Download className="ml-2" />
+              Download Resume <Download />
             </a>
           </Button>
         </div>
