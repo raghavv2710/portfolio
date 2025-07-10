@@ -15,7 +15,7 @@ const ThreeCanvas = () => {
     const scene = new THREE.Scene();
 
     // Camera
-    const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 10);
+    const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 5;
 
     // Renderer
@@ -36,14 +36,14 @@ const ThreeCanvas = () => {
     scene.add(globe);
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xBE3DFF, 350, 100); // Vibrant Purple
+    const pointLight = new THREE.PointLight(0xBE3DFF, 550, 100); // Vibrant Purple
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
     
-    const pointLight2 = new THREE.PointLight(0x7DF9FF, 350, 100); // Electric Blue
+    const pointLight2 = new THREE.PointLight(0x7DF9FF, 550, 100); // Electric Blue
     pointLight2.position.set(-5, -5, -5);
     scene.add(pointLight2);
 
