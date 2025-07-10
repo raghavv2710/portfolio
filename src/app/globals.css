@@ -115,6 +115,10 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
   }
+  
+  .dark .particle {
+    background: hsl(var(--accent)); /* Use accent color for particles in dark mode */
+  }
 
   @keyframes particleFloat {
     0% { 
