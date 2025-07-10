@@ -36,14 +36,14 @@ const ThreeCanvas = () => {
     scene.add(shape);
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xBE3DFF, 100, 100); // Vibrant Purple
+    const pointLight = new THREE.PointLight(0xBE3DFF, 150, 100); // Vibrant Purple
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
     
-    const pointLight2 = new THREE.PointLight(0x7DF9FF, 100, 100); // Electric Blue
+    const pointLight2 = new THREE.PointLight(0x7DF9FF, 150, 100); // Electric Blue
     pointLight2.position.set(-5, -5, -5);
     scene.add(pointLight2);
 
