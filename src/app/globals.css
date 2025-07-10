@@ -197,6 +197,14 @@
   color: hsl(var(--primary));
 }
 
+.dark .name-highlight .letter {
+  color: hsl(var(--primary));
+}
+
+:root .name-highlight .letter {
+  color: hsl(0 60% 35%); /* Dark Red for light mode */
+}
+
 .top-trigger,
 .bottom-trigger {
   height: 50%;
