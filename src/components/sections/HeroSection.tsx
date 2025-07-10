@@ -5,7 +5,6 @@ import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
-import TypewriterText from '../common/TypewriterText';
 
 const HeroSection = () => {
   return (
@@ -16,16 +15,7 @@ const HeroSection = () => {
             <ThreeCanvas />
           </div>
         </MagneticWrapper>
-        <div className="mt-[-2rem] mb-6 text-center">
-            <h1
-              className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
-            >
-              <TypewriterText text="Hi, I am " />
-              <span className="text-accent">
-                <TypewriterText text="Raghavendra" delay={9 * 50} />
-              </span>
-            </h1>
-        </div>
+        
         <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
