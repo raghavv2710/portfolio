@@ -31,11 +31,11 @@ const HeroSection = () => {
         
         <h1 
           className={cn(
-            "font-headline text-5xl md:text-6xl font-bold text-foreground max-w-6xl tracking-tight -mt-10",
+            "font-headline text-5xl md:text-6xl font-bold text-foreground max-w-6xl tracking-tight -mt-10 pb-2",
             animate ? "typewriter-effect" : "typewriter-effect no-anim"
           )}
         >
-          Hi, I am <span className="text-primary">Raghavendra</span>
+          Hi, I am <span className="text-accent">Raghavendra</span>
         </h1>
         
         <div className="mt-8 flex flex-col items-center gap-4">
@@ -46,7 +46,7 @@ const HeroSection = () => {
               </a>
             </Button>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <a href="#contact">Get In Touch</a>
+              <a href="#contact">Contact Me</a>
             </Button>
           </div>
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
