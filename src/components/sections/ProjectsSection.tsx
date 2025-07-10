@@ -68,7 +68,7 @@ const ProjectsSection = () => {
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-2 dark:border-primary/20 overflow-hidden group flex flex-col h-full">
+            <Card key={index} className="backdrop-blur-sm overflow-hidden group flex flex-col h-full">
               <CardHeader className="p-0">
                 <div className="relative h-48 w-full">
                   <Image

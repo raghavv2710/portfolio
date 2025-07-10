@@ -105,7 +105,7 @@ const AiAnalysisSection = () => {
         </p>
       </div>
       <div className="w-full max-w-2xl mx-auto flex flex-col gap-12">
-        <Card className="bg-card/50 backdrop-blur-sm border-2 dark:border-primary/20">
+        <Card className="backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Analyze Your Portfolio</CardTitle>
             <CardDescription>Fill out one of the fields below to get started.</CardDescription>
@@ -156,7 +156,7 @@ const AiAnalysisSection = () => {
           </CardContent>
         </Card>
         
-        <Card className="bg-card/50 backdrop-blur-sm border-2 dark:border-primary/20 flex flex-col items-center justify-center min-h-[400px]">
+        <Card className="backdrop-blur-sm flex flex-col items-center justify-center min-h-[400px]">
           {isLoading && (
             <div className="flex flex-col items-center gap-4 text-primary p-8">
               <Loader2 className="h-12 w-12 animate-spin" />

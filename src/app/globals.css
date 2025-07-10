@@ -6,7 +6,7 @@
   :root {
     --background: 40 30% 94%; /* Warmer, less bright off-white */
     --foreground: 25 25% 15%; /* Darker, warm gray for better contrast */
-    --card: 40 50% 98%; /* Slightly off-white card */
+    --card: transparent; /* Transparent card background */
     --card-foreground: 25 25% 15%;
     --popover: 40 50% 98%; /* Slightly off-white popover */
     --popover-foreground: 25 25% 15%;
@@ -109,7 +109,7 @@
     position: absolute;
     width: 5px;
     height: 5px;
-    background: hsl(var(--primary)); /* Use primary color for particles */
+    background: hsl(var(--foreground)); /* Use foreground color for particles */
     border-radius: 50%;
     animation-name: particleFloat;
     animation-timing-function: ease-in-out;
