@@ -58,14 +58,14 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <SectionWrapper id="projects" className="bg-background py-10 md:py-16">
+    <SectionWrapper id="projects" className="bg-background py-8 md:py-12">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <h2 className="font-headline text-4xl md:text-5xl font-bold">My Creations</h2>
         <p className="max-w-3xl text-lg text-foreground/80">
           Here are some of the projects I've worked on, showcasing my skills in action.
         </p>
       </div>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden group flex flex-col h-full">
