@@ -24,35 +24,71 @@ const ThreeCanvas = () => {
     renderer.setPixelRatio(window.devicePixelRatio);
     currentMount.appendChild(renderer.domElement);
 
-    // Object
-    const geometry = new THREE.IcosahedronGeometry(2.5, 1);
-    const material = new THREE.MeshStandardMaterial({
+    // Main Globe
+    const globeGeometry = new THREE.IcosahedronGeometry(2.5, 1);
+    const globeMaterial = new THREE.MeshStandardMaterial({
       color: '#7DF9FF', // Electric Blue
       metalness: 0.6,
       roughness: 0.4,
       wireframe: true,
     });
-    const shape = new THREE.Mesh(geometry, material);
-    scene.add(shape);
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    scene.add(globe);
 
+    // Orbital Ring
+    const ringGeometry = new THREE.TorusGeometry(3.5, 0.02, 16, 100);
+    const ringMaterial = new THREE.MeshBasicMaterial({ color: '#BE3DFF', transparent: true, opacity: 0.5 });
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+    ring.rotation.x = Math.PI / 2.5; // Tilt the ring
+    scene.add(ring);
+
+    // Orbiting Satellite (Octahedron)
+    const satelliteGeometry = new THREE.OctahedronGeometry(0.2, 0);
+    const satelliteMaterial = new THREE.MeshStandardMaterial({
+      color: '#FFFFFF',
+      emissive: '#BE3DFF',
+      emissiveIntensity: 2,
+      metalness: 0.8,
+      roughness: 0.2,
+    });
+    const satellite = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
+    scene.add(satellite);
+    
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xBE3DFF, 150, 100); // Vibrant Purple
+    const pointLight = new THREE.PointLight(0xBE3DFF, 250, 100); // Vibrant Purple
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
     
-    const pointLight2 = new THREE.PointLight(0x7DF9FF, 150, 100); // Electric Blue
+    const pointLight2 = new THREE.PointLight(0x7DF9FF, 250, 100); // Electric Blue
     pointLight2.position.set(-5, -5, -5);
     scene.add(pointLight2);
 
+    const clock = new THREE.Clock();
 
     // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      shape.rotation.x += 0.001;
-      shape.rotation.y += 0.001;
+      const elapsedTime = clock.getElapsedTime();
+
+      // Globe rotation
+      globe.rotation.x += 0.001;
+      globe.rotation.y += 0.001;
+      
+      // Satellite orbit
+      const orbitRadius = 3.5;
+      satellite.position.x = Math.cos(elapsedTime * 0.5) * orbitRadius;
+      satellite.position.z = Math.sin(elapsedTime * 0.5) * orbitRadius;
+
+      // Make satellite follow the ring's tilt
+      const ringRotation = new THREE.Quaternion().setFromEuler(ring.rotation);
+      satellite.position.applyQuaternion(ringRotation);
+
+      // Satellite's own rotation
+      satellite.rotation.y += 0.01;
+      
       renderer.render(scene, camera);
     };
     animate();
