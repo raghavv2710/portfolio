@@ -18,14 +18,8 @@ const ThreeCanvas = () => {
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
     camera.position.z = 5;
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    currentMount.appendChild(renderer.domElement);
-
     // Main Globe
-    const globeGeometry = new THREE.IcosahedronGeometry(3, 1);
+    const globeGeometry = new THREE.IcosahedronGeometry(1.8, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
       color: '#7DF9FF', // Electric Blue
       metalness: 0.6,
