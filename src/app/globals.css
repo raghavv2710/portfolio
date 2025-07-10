@@ -174,24 +174,24 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.1em; /* Reduced gap */
+    gap: 0.5em; /* Controls space between letters */
   }
   
   .letter-container {
     position: relative;
-    height: 100px; /* Set height for hover zones */
+    width: 40px; /* This gives each letter a fixed space, creating gaps */
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    /* Width is now intrinsic to the letter's size */
   }
   
   .top-trigger,
   .bottom-trigger {
     height: 50%;
     width: 100%;
-    z-index: 2; /* Make sure triggers are on top */
+    z-index: 2;
   }
   
   .letter {
@@ -204,11 +204,11 @@
     font-weight: 700;
     color: hsl(var(--foreground));
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    pointer-events: none; /* The letter itself shouldn't capture mouse events */
+    pointer-events: none;
   }
 
   /* Highlight "Raghavendra" with primary color */
-  .letter-container:nth-child(n+10) > .letter {
+  .canyon-word > .letter-container:nth-child(n+10) .letter {
     color: hsl(var(--primary));
   }
   
