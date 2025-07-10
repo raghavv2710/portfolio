@@ -1,19 +1,19 @@
 'use client';
 
 import React from 'react';
+import { cn } from '@/lib/utils';
 
-const InteractiveText = () => {
-  return (
-    <div className="concept-three relative">
-      <div className="hover">
-        <div></div>
-        <div></div>
-        <h1 className="font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight select-none">
-          Hi, I am <span className="text-primary">Raghavendra</span>
+interface InteractiveTextProps {
+    className?: string;
+    children: React.ReactNode;
+}
+
+const InteractiveText = ({ className, children }: InteractiveTextProps) => {
+    return (
+        <h1 className={cn("font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight select-none", className)}>
+            {children}
         </h1>
-      </div>
-    </div>
-  );
-};
+    )
+}
 
 export default InteractiveText;
