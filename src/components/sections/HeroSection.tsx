@@ -22,16 +22,16 @@ const HeroSection = () => {
         
         <div className="mt-4 flex flex-col items-center gap-2">
           <div className="flex flex-wrap justify-center gap-2">
-            <Button size="sm" asChild>
+            <Button asChild>
               <a href="#projects">
                 View My Work <MoveRight className="ml-2" />
               </a>
             </Button>
-            <Button size="sm" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href="#contact">Get In Touch</a>
             </Button>
           </div>
-          <Button size="sm" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <a href="/resume.pdf" download>
               Download Resume <Download className="ml-2" />
             </a>
