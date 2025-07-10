@@ -169,56 +169,41 @@
       background: hsl(var(--primary));
   }
 
-  /* Canyon Word Wrapper */
-  .canyon-word {
-    @apply flex flex-wrap justify-center gap-2;
-  }
-
-  /* Letter Container */
   .letter-container {
-    position: relative;
-    width: 40px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
+    @apply relative flex flex-col justify-between cursor-pointer;
+    width: 32px;
+    height: 80px;
   }
-
-  /* Hover Zones */
-  .top-trigger,
-  .bottom-trigger {
-    height: 50%;
-    width: 100%;
-    z-index: 2;
-  }
-
-  /* Actual Letter */
+  
   .letter {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Space Grotesk", sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem); /* responsive size */
     font-weight: 700;
     color: hsl(var(--foreground));
-    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     pointer-events: none;
   }
-
-  /* Canyon Hover Effect */
+  
+  .name-highlight .letter {
+    color: hsl(var(--primary));
+  }
+  
+  .top-trigger,
+  .bottom-trigger {
+    height: 50%;
+    width: 100%;
+    z-index: 2;
+  }
+  
   .top-trigger:hover ~ .letter {
     transform: translate(-50%, -60%);
   }
-
+  
   .bottom-trigger:hover ~ .letter {
     transform: translate(-50%, -40%);
-  }
-
-  /* Highlight "Raghavendra" in primary color */
-  .name-highlight .letter {
-    color: hsl(var(--primary));
   }
 }

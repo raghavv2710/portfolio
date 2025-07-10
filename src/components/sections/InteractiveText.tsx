@@ -2,18 +2,18 @@ const InteractiveText = () => {
   const text = "Hi, I am Raghavendra";
 
   return (
-    <div className="canyon-word">
+    <div className="canyon-word flex flex-wrap justify-center items-center gap-[4px]">
       {text.split("").map((char, index) => {
         if (char === " ") {
-          return <div key={index} className="w-3" />;
+          return <div key={index} className="w-[16px]" />;
         }
 
-        const isNamePart = index >= 9; // "Raghavendra" starts from 10th character (index 9)
+        const isNamePart = index >= 9;
 
         return (
           <div
-            className={`letter-container ${isNamePart ? "name-highlight" : ""}`}
             key={index}
+            className={`letter-container ${isNamePart ? "name-highlight" : ""}`}
           >
             <div className="top-trigger" />
             <div className="bottom-trigger" />
