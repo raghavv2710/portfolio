@@ -15,7 +15,8 @@ const ThreeCanvas = () => {
     const scene = new THREE.Scene();
 
     // Camera
-    const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
+    // Increase the 'far' clipping plane from 1000 to 10 to ensure the ring is not clipped
+    const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 10);
     camera.position.z = 5;
 
     // Renderer
@@ -39,7 +40,9 @@ const ThreeCanvas = () => {
     const ringGeometry = new THREE.TorusGeometry(3.5, 0.02, 16, 100);
     const ringMaterial = new THREE.MeshBasicMaterial({ color: '#BE3DFF', transparent: true, opacity: 0.5 });
     const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-    ring.rotation.x = Math.PI / 2.5; // Tilt the ring
+    // Set rotation for top-right to bottom-left tilt
+    ring.rotation.x = Math.PI * 0.25;
+    ring.rotation.y = Math.PI * 0.25;
     scene.add(ring);
 
     // Orbiting Satellite (Octahedron)
@@ -55,14 +58,14 @@ const ThreeCanvas = () => {
     scene.add(satellite);
     
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xBE3DFF, 250, 100); // Vibrant Purple
+    const pointLight = new THREE.PointLight(0xBE3DFF, 350, 100); // Vibrant Purple
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
     
-    const pointLight2 = new THREE.PointLight(0x7DF9FF, 250, 100); // Electric Blue
+    const pointLight2 = new THREE.PointLight(0x7DF9FF, 350, 100); // Electric Blue
     pointLight2.position.set(-5, -5, -5);
     scene.add(pointLight2);
 
