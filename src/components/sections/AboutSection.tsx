@@ -22,7 +22,7 @@ const aboutData = [
 
 const AboutSection = () => {
   return (
-    <SectionWrapper id="about" className="py-12 md:py-16">
+    <SectionWrapper id="about" className="py-8 md:py-12">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <h2 className="font-headline text-4xl md:text-5xl font-bold">About Me</h2>
         <p className="max-w-3xl text-lg text-foreground/80">
@@ -31,7 +31,7 @@ const AboutSection = () => {
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {aboutData.map((item, index) => (
-          <Card key={index} className="bg-card/50 backdrop-blur-sm border-2 dark:border-primary/30 transform transition-all duration-300 hover:scale-105 hover:border-primary">
+          <Card key={index} className="bg-card/50 backdrop-blur-sm border-2 dark:border-primary/20 transform transition-all duration-300 hover:scale-105 hover:border-primary shadow-lg">
             <CardHeader className="items-center">
               {item.icon}
               <CardTitle className="font-headline text-2xl mt-4">{item.title}</CardTitle>
