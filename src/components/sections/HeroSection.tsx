@@ -11,27 +11,27 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
       <div className="relative z-10 flex flex-col items-center p-4">
         <MagneticWrapper particleCount={200}>
-          <div className="relative h-[18rem] w-[18rem]">
+          <div className="relative h-[22rem] w-[22rem]">
             <ThreeCanvas />
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mt-4 text-foreground max-w-5xl tracking-tight">
+        <h1 className="font-headline text-6xl md:text-8xl font-bold mt-2 text-foreground max-w-5xl tracking-tight">
           Hi, I am Raghavendra
         </h1>
         
         <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild className="px-10 py-6 text-lg">
+            <Button asChild size="lg" className="text-base">
               <a href="#projects">
                 View My Work <MoveRight className="ml-2" />
               </a>
             </Button>
-            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-6 text-lg">
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-base">
               <a href="#contact">Get In Touch</a>
             </Button>
           </div>
-          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-6 text-lg">
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-base">
             <a href="/resume.pdf" download>
               Download Resume <Download className="ml-2" />
             </a>
