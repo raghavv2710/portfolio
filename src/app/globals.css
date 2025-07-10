@@ -201,10 +201,10 @@
 }
 
 .bottom-trigger:hover ~ .letter {
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -60%);
 }
 
 .top-trigger:hover ~ .letter {
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -40%);
 }
 }
