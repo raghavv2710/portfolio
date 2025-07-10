@@ -17,7 +17,7 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <div className="mt-[-2.5rem] pb-2 text-center">
+        <div className="mt-[-2.5rem] pb-2 text-center h-[100px] flex items-center">
           <InteractiveText />
         </div>
         

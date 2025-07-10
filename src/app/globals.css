@@ -168,8 +168,8 @@
       left: 0;
       background: hsl(var(--primary));
   }
-
-  /* Canyon Hover Effect */
+  
+  /* Canyon Effect */
   .canyon-word {
     display: flex;
     align-items: center;
@@ -181,7 +181,6 @@
     position: relative;
     display: grid;
     place-items: center;
-    height: 100px; /* Provides consistent height for triggers */
   }
   
   .canyon-triggers {
