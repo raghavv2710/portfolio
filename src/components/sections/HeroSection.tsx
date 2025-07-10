@@ -31,7 +31,7 @@ const HeroSection = () => {
         
         <h1 
           className={cn(
-            "font-headline text-6xl md:text-7xl font-bold text-foreground max-w-6xl tracking-tight -mt-10",
+            "font-headline text-5xl md:text-6xl font-bold text-foreground max-w-6xl tracking-tight -mt-10",
             animate ? "typewriter-effect" : "typewriter-effect no-anim"
           )}
         >
