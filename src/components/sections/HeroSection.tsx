@@ -18,7 +18,7 @@ const HeroSection = () => {
         
         <div className="mt-[-2.5rem] pb-2 text-center">
           <h1 className="font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight">
-            I am <span className="text-primary">Raghavendra</span>
+            Hi, I am <span className="text-primary">Raghavendra</span>
           </h1>
         </div>
         
