@@ -174,17 +174,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5em;
+    gap: 0.1em; /* Reduced gap */
   }
   
   .letter-container {
     position: relative;
-    width: 40px;
-    height: 100px;
+    height: 100px; /* Set height for hover zones */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    /* Width is now intrinsic to the letter's size */
   }
   
   .top-trigger,
@@ -200,13 +200,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Space Grotesk", sans-serif;
-    font-size: 3rem; /* Adjust font size */
+    font-size: 3rem;
     font-weight: 700;
     color: hsl(var(--foreground));
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     pointer-events: none; /* The letter itself shouldn't capture mouse events */
   }
 
+  /* Highlight "Raghavendra" with primary color */
   .letter-container:nth-child(n+10) > .letter {
     color: hsl(var(--primary));
   }
