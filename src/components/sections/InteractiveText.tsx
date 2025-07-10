@@ -5,7 +5,7 @@ const InteractiveText = () => {
     <div className="canyon-word">
       {text.split("").map((char, index) => {
         if (char === " ") {
-          return <div key={index} className="w-2" />;
+          return <div key={index} className="w-3" />;
         }
         return (
           <div className="letter-container" key={index}>
