@@ -174,15 +174,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.1em; /* Adjust gap between letters */
-    min-height: 100px; /* Ensure container has height */
+    gap: 0.5em;
   }
   
   .letter-container {
     position: relative;
-    width: auto; /* Let letter define its own width */
-    padding: 0 0.1em; /* Add slight horizontal padding */
-    height: 100px; /* Adjust height as needed */
+    width: 40px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
