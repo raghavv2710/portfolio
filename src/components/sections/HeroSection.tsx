@@ -11,27 +11,27 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
       <div className="relative z-10 flex flex-col items-center p-4">
         <MagneticWrapper particleCount={200}>
-          <div className="relative h-[10rem] w-[10rem]">
+          <div className="relative h-[16rem] w-[16rem]">
             <ThreeCanvas />
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-3xl md:text-4xl font-bold mt-4 text-foreground max-w-5xl tracking-tight">
+        <h1 className="font-headline text-2xl md:text-3xl font-bold mt-2 text-foreground max-w-5xl tracking-tight">
           Hi, I am Raghavendra
         </h1>
         
-        <div className="mt-6 flex flex-col items-center gap-3">
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button size="default" asChild className="text-sm py-2 px-4">
+        <div className="mt-4 flex flex-col items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
+            <Button size="sm" asChild>
               <a href="#projects">
                 View My Work <MoveRight className="ml-2" />
               </a>
             </Button>
-            <Button size="default" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-sm py-2 px-4">
+            <Button size="sm" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <a href="#contact">Get In Touch</a>
             </Button>
           </div>
-          <Button size="default" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-sm py-2 px-4">
+          <Button size="sm" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <a href="/resume.pdf" download>
               Download Resume <Download className="ml-2" />
             </a>

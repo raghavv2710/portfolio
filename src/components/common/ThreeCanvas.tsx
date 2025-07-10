@@ -32,7 +32,7 @@ const ThreeCanvas = () => {
       wireframe: true,
     });
     const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    globe.scale.set(1.35, 1.35, 1.35);
+    globe.scale.set(1.8, 1.8, 1.8);
     scene.add(globe);
 
     // Lights
