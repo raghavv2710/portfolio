@@ -7,8 +7,14 @@ const InteractiveText = () => {
         if (char === " ") {
           return <div key={index} className="w-3" />;
         }
+
+        const isNamePart = index >= 9; // "Raghavendra" starts from 10th character (index 9)
+
         return (
-          <div className="letter-container" key={index}>
+          <div
+            className={`letter-container ${isNamePart ? "name-highlight" : ""}`}
+            key={index}
+          >
             <div className="top-trigger" />
             <div className="bottom-trigger" />
             <span className="letter">{char}</span>
