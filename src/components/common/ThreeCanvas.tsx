@@ -33,7 +33,8 @@ const ThreeCanvas = () => {
     // Main Globe
     const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
     const globeMaterial = new THREE.MeshStandardMaterial({
-      color: resolvedTheme === 'light' ? 'hsl(245 80% 20%)' : 0x000000, // placeholder, will override via setHSL
+      color: resolvedTheme === 'light' ? 'hsl(245, 100%, 15%)' : 0x000000,
+      emissive: resolvedTheme === 'light' ? new THREE.Color('hsl(245, 100%, 25%)') : 0x000000,
       metalness: 0.6,
       roughness: 0.4,
       wireframe: true,
