@@ -7,10 +7,16 @@ type MagneticWrapperProps = {
   children: React.ReactNode;
   className?: string;
   particleCount?: number;
+  alwaysShow?: boolean;
 };
 
 // Default particle count is now low (20) for the nav bar.
-const MagneticWrapper = ({ children, className, particleCount = 20 }: MagneticWrapperProps) => {
+const MagneticWrapper = ({
+  children,
+  className,
+  particleCount = 20,
+  alwaysShow = false,
+}: MagneticWrapperProps) => {
   const particleFieldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,7 +42,10 @@ const MagneticWrapper = ({ children, className, particleCount = 20 }: MagneticWr
   }, [particleCount]);
 
   return (
-    <div className={cn('magnetic-container', className)}>
+    <div
+      className={cn('magnetic-container', className)}
+      data-always-show={alwaysShow}
+    >
       <div ref={particleFieldRef} className="particles-field" aria-hidden="true"></div>
       {children}
     </div>

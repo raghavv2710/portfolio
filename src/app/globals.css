@@ -100,7 +100,8 @@
     z-index: -1;
   }
 
-  .magnetic-container:hover .particles-field {
+  .magnetic-container:hover .particles-field,
+  .magnetic-container[data-always-show='true'] .particles-field {
     opacity: 1;
   }
 
@@ -199,11 +200,11 @@
     z-index: 2;
   }
   
-  .top-trigger:hover ~ .letter {
+  .bottom-trigger:hover ~ .letter {
     transform: translate(-50%, -40%);
   }
   
-  .bottom-trigger:hover ~ .letter {
+  .top-trigger:hover ~ .letter {
     transform: translate(-50%, -60%);
   }
 }

@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="relative z-10 flex flex-col items-center p-4">
-        <MagneticWrapper particleCount={200}>
+        <MagneticWrapper particleCount={200} alwaysShow={true}>
           <div className="relative h-[22rem] w-[22rem]">
             <ThreeCanvas />
           </div>
