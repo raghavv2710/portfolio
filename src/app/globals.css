@@ -20,8 +20,8 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 20% 90%;
-    --input: 40 20% 90%;
+    --border: 40 20% 80%;
+    --input: 40 20% 80%;
     --ring: 158 26% 47%;
     --chart-1: 158 26% 47%;
     --chart-2: 20 80% 55%;
@@ -107,8 +107,8 @@
 
   .particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
     background: hsl(var(--accent)); /* Use accent color for particles */
     border-radius: 50%;
     animation-name: particleFloat;
@@ -123,7 +123,7 @@
     }
     50% { 
       transform: calc(var(--x) * -1), calc(var(--y) * -1) scale(1);
-      opacity: 0.5;
+      opacity: 0.8;
     }
     100% {
       transform: translate(var(--x), var(--y)) scale(0);
