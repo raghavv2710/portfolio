@@ -8,7 +8,7 @@ import MagneticWrapper from '../common/MagneticWrapper';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
+    <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="relative z-10 flex flex-col items-center p-4">
         <MagneticWrapper particleCount={200}>
           <div className="relative h-[22rem] w-[22rem]">
@@ -16,8 +16,8 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         
-        <h1 className="font-headline text-7xl md:text-8xl font-bold -mt-8 text-foreground max-w-5xl tracking-tight">
-          Raghavendra
+        <h1 className="font-headline text-6xl md:text-7xl font-bold -mt-20 text-foreground max-w-5xl tracking-tight">
+          Hi, I am Raghavendra
         </h1>
         
         <div className="mt-8 flex flex-col items-center gap-4">
