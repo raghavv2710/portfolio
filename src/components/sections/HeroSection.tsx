@@ -5,6 +5,7 @@ import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
+import InteractiveText from './InteractiveText';
 
 const HeroSection = () => {
   return (
@@ -17,9 +18,7 @@ const HeroSection = () => {
         </MagneticWrapper>
         
         <div className="mt-[-2.5rem] pb-2 text-center">
-          <h1 className="font-headline text-5xl md:text-6xl font-bold text-foreground tracking-tight">
-            Hi, I am <span className="text-primary">Raghavendra</span>
-          </h1>
+          <InteractiveText />
         </div>
         
         <div className="mt-8 flex flex-col items-center gap-4">
