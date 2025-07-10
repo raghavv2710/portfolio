@@ -32,23 +32,47 @@ const ThreeCanvas = () => {
 
     // Main Globe
     const globeGeometry = new THREE.IcosahedronGeometry(1.2, 1);
-    const globeMaterial = new THREE.MeshStandardMaterial({
-      color: resolvedTheme === 'light' ? 'hsl(245, 100%, 15%)' : 0x000000,
-      emissive: resolvedTheme === 'light' ? new THREE.Color('hsl(245, 100%, 25%)') : 0x000000,
-      metalness: 0.6,
-      roughness: 0.4,
+
+    const globeMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x000000, // placeholder, will override below
       wireframe: true,
+      metalness: 1.0,
+      roughness: 0.2,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1,
+      sheen: 1.0,
+      sheenColor: new THREE.Color('#7DF9FF'), // vibrant sheen layer
+      emissive: new THREE.Color('#7DF9FF'),
+      emissiveIntensity: 2.0, // glow
     });
+
     const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    
-    // Use setHSL to apply electric blue in dark mode
+
+    // Apply theme-specific coloring
     if (resolvedTheme === 'dark') {
-      const [h, s, l] = primaryColor.split(' ').map(parseFloat);
-      globeMaterial.color.setHSL(h / 360, s / 100, l / 100); // HSL expects [0–1] range
+      globeMaterial.color.set('#7DF9FF'); // electric blue core
+    } else {
+      globeMaterial.color.set('hsl(245, 100%, 15%)'); // light mode color
+      globeMaterial.emissive.set('hsl(245, 100%, 25%)');
+      globeMaterial.emissiveIntensity = 0.6;
     }
 
     globe.scale.set(1.8, 1.8, 1.8);
     scene.add(globe);
+
+    // Optional Depth Boost (Thicker Feel)
+    if (resolvedTheme === 'dark') {
+      const glowMaterial = new THREE.MeshBasicMaterial({
+        color: '#7DF9FF',
+        transparent: true,
+        opacity: 0.1,
+        depthWrite: false,
+      });
+      const glowMesh = new THREE.Mesh(globeGeometry, glowMaterial);
+      glowMesh.scale.set(2.2, 2.2, 2.2); // Slightly larger
+      scene.add(glowMesh);
+    }
+
 
     // Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 4.5);
