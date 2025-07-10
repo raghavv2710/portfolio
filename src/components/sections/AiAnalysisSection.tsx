@@ -95,7 +95,7 @@ const AiAnalysisSection = () => {
   }
 
   return (
-    <SectionWrapper id="ai-analysis">
+    <SectionWrapper id="ai-analysis" className="py-12 md:py-16">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center gap-2">
           <Sparkles className="text-primary w-10 h-10" /> AI Portfolio Analysis
@@ -105,7 +105,7 @@ const AiAnalysisSection = () => {
         </p>
       </div>
       <div className="w-full max-w-2xl mx-auto flex flex-col gap-12">
-        <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
+        <Card className="bg-card/50 backdrop-blur-sm border-2 border-border/20 dark:border-primary/20">
           <CardHeader>
             <CardTitle>Analyze Your Portfolio</CardTitle>
             <CardDescription>Fill out one of the fields below to get started.</CardDescription>
@@ -156,7 +156,7 @@ const AiAnalysisSection = () => {
           </CardContent>
         </Card>
         
-        <Card className="bg-card/50 backdrop-blur-sm border-primary/20 flex flex-col items-center justify-center min-h-[400px]">
+        <Card className="bg-card/50 backdrop-blur-sm border-2 border-border/20 dark:border-primary/20 flex flex-col items-center justify-center min-h-[400px]">
           {isLoading && (
             <div className="flex flex-col items-center gap-4 text-primary p-8">
               <Loader2 className="h-12 w-12 animate-spin" />

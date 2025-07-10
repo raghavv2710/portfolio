@@ -4,7 +4,7 @@ import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <SectionWrapper id="contact" className="pt-8 pb-12">
+    <SectionWrapper id="contact" className="pt-8 pb-8">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <h2 className="font-headline text-4xl md:text-5xl font-bold">Get In Touch</h2>
         <p className="max-w-3xl text-lg text-foreground/80">
