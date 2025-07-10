@@ -5,19 +5,7 @@ import ThreeCanvas from '@/components/common/ThreeCanvas';
 import { Button } from '@/components/ui/button';
 import { MoveRight, Download } from 'lucide-react';
 import MagneticWrapper from '../common/MagneticWrapper';
-import { motion } from 'framer-motion';
-import AnimatedText from '../common/AnimatedText';
-
-const sentence = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 0.2,
-      staggerChildren: 0.08,
-    },
-  },
-};
+import TypewriterText from '../common/TypewriterText';
 
 const HeroSection = () => {
   return (
@@ -29,17 +17,14 @@ const HeroSection = () => {
           </div>
         </MagneticWrapper>
         <div className="mt-[-2rem] mb-6 text-center">
-            <motion.h1
+            <h1
               className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter"
-              variants={sentence}
-              initial="hidden"
-              animate="visible"
             >
-              <AnimatedText text="Hi, I am " className="inline-block" />
+              <TypewriterText text="Hi, I am " />
               <span className="text-accent">
-                <AnimatedText text="Raghavendra" className="inline-block" />
+                <TypewriterText text="Raghavendra" delay={9 * 50} />
               </span>
-            </motion.h1>
+            </h1>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-4">
