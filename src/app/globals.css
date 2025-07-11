@@ -217,4 +217,17 @@
 .top-trigger:hover ~ .letter {
   transform: translate(-50%, -40%);
 }
+
+.static-heading {
+    font-family: "Space Grotesk", sans-serif;
+    @apply text-4xl md:text-5xl font-bold text-foreground;
+}
+
+.static-heading .name-highlight {
+    color: #780000;
+}
+
+.dark .static-heading .name-highlight {
+    color: hsl(var(--primary));
+}
 }
