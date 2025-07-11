@@ -27,19 +27,19 @@ const SkillsSection = () => {
 
   return (
     <SectionWrapper id="skills" className="py-8 md:py-12">
-      <div className="flex flex-col items-center text-center gap-4 mb-12">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold">My Skillset</h2>
-        <p className="max-w-3xl text-lg text-foreground/80">
+      <div className="flex flex-col items-center text-center gap-4 mb-10 md:mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl font-bold">My Skillset</h2>
+        <p className="max-w-3xl text-base md:text-lg text-foreground/80">
           A collection of technologies and tools I use to build my digital creations.
         </p>
       </div>
       <div className="flex justify-center">
-        <Card className="w-full max-w-4xl backdrop-blur-sm">
-          <CardContent className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Card className="w-full max-w-4xl border-2 backdrop-blur-sm">
+          <CardContent className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             {skills.map((skill) => (
               <div key={skill.name} className="space-y-2">
                 <div className="flex justify-between">
-                  <h3 className="text-lg font-medium">{skill.name}</h3>
+                  <h3 className="text-base md:text-lg font-medium">{skill.name}</h3>
                   <span className="text-primary font-semibold">{skill.level}%</span>
                 </div>
                 <Progress value={progressValues[skill.name] || 0} className="h-3 [&>div]:bg-primary transition-all duration-1000 ease-out" />

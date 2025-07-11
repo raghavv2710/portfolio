@@ -14,7 +14,7 @@ const SectionWrapper = ({
     <section
       id={id}
       className={cn(
-        "w-full min-h-screen py-20 md:py-32 flex flex-col justify-center",
+        "w-full min-h-screen py-16 md:py-24 flex flex-col justify-center",
         className
       )}
     >

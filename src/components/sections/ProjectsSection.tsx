@@ -59,16 +59,16 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <SectionWrapper id="projects" className="py-8 md:py-12">
-      <div className="flex flex-col items-center text-center gap-4 mb-12">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold">My Creations</h2>
-        <p className="max-w-3xl text-lg text-foreground/80">
+      <div className="flex flex-col items-center text-center gap-4 mb-10 md:mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl font-bold">My Creations</h2>
+        <p className="max-w-3xl text-base md:text-lg text-foreground/80">
           Here are some of the projects I've worked on, showcasing my skills in action.
         </p>
       </div>
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="backdrop-blur-sm overflow-hidden group flex flex-col h-full">
+            <Card key={index} className="border-2 backdrop-blur-sm overflow-hidden group flex flex-col h-full">
               <CardHeader className="p-0">
                 <div className="relative h-48 w-full">
                   <Image
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-6 flex-grow">
-                <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+                <CardTitle className="font-headline text-xl md:text-2xl">{project.title}</CardTitle>
                 <CardDescription className="mt-2 text-foreground/70">{project.description}</CardDescription>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map(tag => (

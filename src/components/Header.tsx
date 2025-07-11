@@ -2,8 +2,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from "./ui/button";
 import Link from 'next/link';
-import { Code2 } from 'lucide-react';
+import { Code2, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './common/ThemeToggle';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -14,6 +17,7 @@ const navLinks = [
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,10 +42,52 @@ const Header = () => {
                     ))}
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                    <a href="#contact">Contact Me</a>
+                    <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground hidden md:inline-flex">
+                        <a href="#contact">Contact Me</a>
                     </Button>
                     <ThemeToggle />
+                    {isMobile && (
+                        <Sheet>
+                            <SheetTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                    <Menu />
+                                    <span className="sr-only">Open menu</span>
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="right" className="w-[280px] bg-background">
+                                <div className="flex flex-col h-full p-4">
+                                    <div className="flex justify-between items-center mb-8">
+                                        <Link href="#home" className="flex items-center gap-2" aria-label="Home">
+                                            <Code2 className="text-primary h-7 w-7"/>
+                                            <span className="font-headline text-lg font-bold">Portfolio</span>
+                                        </Link>
+                                        <SheetClose asChild>
+                                            <Button variant="ghost" size="icon">
+                                                <X />
+                                                <span className="sr-only">Close menu</span>
+                                            </Button>
+                                        </SheetClose>
+                                    </div>
+                                    <nav className="flex flex-col gap-6">
+                                        {navLinks.map(link => (
+                                          <SheetClose asChild key={link.href}>
+                                              <Link href={link.href} className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
+                                                  {link.name}
+                                              </Link>
+                                          </SheetClose>
+                                        ))}
+                                    </nav>
+                                    <div className="mt-auto">
+                                      <SheetClose asChild>
+                                        <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                                          <a href="#contact">Contact Me</a>
+                                        </Button>
+                                      </SheetClose>
+                                    </div>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
+                    )}
                 </div>
             </nav>
         </header>

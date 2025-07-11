@@ -95,17 +95,17 @@ const AiAnalysisSection = () => {
   }
 
   return (
-    <SectionWrapper id="ai-analysis" className="py-8 md:py-12">
-      <div className="flex flex-col items-center text-center gap-4 mb-12">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center gap-2">
-          <Sparkles className="text-primary w-10 h-10" /> AI Portfolio Analysis
+    <SectionWrapper id="ai-analysis" className="pt-4 md:py-12">
+      <div className="flex flex-col items-center text-center gap-4 mb-10 md:mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl font-bold flex items-center gap-2">
+          <Sparkles className="text-primary w-8 h-8 md:w-10 md:h-10" /> AI Portfolio Analysis
         </h2>
-        <p className="max-w-3xl text-lg text-foreground/80">
+        <p className="max-w-3xl text-base md:text-lg text-foreground/80">
           Get instant feedback on your own portfolio. Describe it or provide a link below and let our AI provide insights on its strengths and areas for improvement.
         </p>
       </div>
       <div className="w-full max-w-2xl mx-auto flex flex-col gap-12">
-        <Card className="backdrop-blur-sm">
+        <Card className="border-2 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Analyze Your Portfolio</CardTitle>
             <CardDescription>Fill out one of the fields below to get started.</CardDescription>
@@ -156,7 +156,7 @@ const AiAnalysisSection = () => {
           </CardContent>
         </Card>
         
-        <Card className="backdrop-blur-sm flex flex-col items-center justify-center min-h-[400px]">
+        <Card className="border-2 backdrop-blur-sm flex flex-col items-center justify-center min-h-[400px]">
           {isLoading && (
             <div className="flex flex-col items-center gap-4 text-primary p-8">
               <Loader2 className="h-12 w-12 animate-spin" />
