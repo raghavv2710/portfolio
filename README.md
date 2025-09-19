@@ -47,14 +47,3 @@ If you're here to evaluate my work or consider me for a role, you’ll get:
 - An understanding of how I work: from ideation to polish, frontend to backend
 
 ---
-
-## 📫 Get in Touch
-
-I’d love to hear from you — whether you’re a company, a fellow builder, or someone with a shared love for thoughtful technology.
-
-> 💬 **[Say Hello](#contact-me)** or drop a message through the contact form.
-
----
-
-**© 2025 Raghavendra**  
-*Designed and built with focus, clarity, and care.*
