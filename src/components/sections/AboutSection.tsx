@@ -6,17 +6,17 @@ const aboutData = [
   {
     icon: <Code className="h-8 w-8 text-primary" />,
     title: "My Journey",
-    description: "Starting with a simple 'Hello, World!', my journey into web development has been an exciting adventure of continuous learning and creation. I've grown from building static websites to engineering complex, interactive web applications."
+    description: "From a simple “Hello, World!” to full-stack applications and AI-powered systems, my path has been about learning, experimenting, and creating solutions that matter."
   },
   {
     icon: <Rocket className="h-8 w-8 text-primary" />,
     title: "My Philosophy",
-    description: "I believe in the power of clean code and thoughtful design. My goal is to create web experiences that are not only functional and performant but also aesthetically pleasing and intuitive for the user."
+    description: "I believe in clean code, smart design, and solving problems at their core—building products that are reliable, scalable, and intuitive."
   },
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: "What I Do",
-    description: "I specialize in front-end development with a strong focus on React and its ecosystem. From futuristic UIs with 3D elements to robust data-driven applications, I love bringing ideas to life in the browser."
+    description: "I work across the stack with React, Node.js, and FastAPI, and love exploring AI/ML to bring intelligence into applications—whether it’s sleek UIs, real-time dashboards, or NLP-driven systems."
   }
 ];
 
