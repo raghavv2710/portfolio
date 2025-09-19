@@ -7,52 +7,12 @@ import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "Interactive Data Viz",
-    description: "An interactive data visualization platform built with D3.js and React, showcasing complex datasets in an intuitive way.",
-    imageHint: "data visualization",
+    title: "AI Media Watchdog",
+    description: "An AI-powered platform that monitors digital media for sentiment, toxicity, and misinformation, delivering real-time insights for healthier online spaces.",
+    imageHint: "media monitoring dashboard",
     liveUrl: "#",
     githubUrl: "#",
-    tags: ["React", "D3.js", "Next.js"],
-  },
-  {
-    title: "3D Product Configurator",
-    description: "A 3D product configurator using Three.js, allowing users to customize products in real-time in their browser.",
-    imageHint: "3d model",
-    liveUrl: "#",
-    githubUrl: "#",
-    tags: ["Three.js", "React", "Websockets"],
-  },
-  {
-    title: "Futuristic E-commerce",
-    description: "A futuristic e-commerce store with a unique UI/UX, focusing on micro-interactions and a seamless checkout experience.",
-    imageHint: "ecommerce interface",
-    liveUrl: "#",
-    githubUrl: "#",
-    tags: ["Next.js", "Stripe", "TailwindCSS"],
-  },
-  {
-    title: "AI-Powered Chatbot",
-    description: "A conversational AI chatbot integrated into a customer service platform, using Genkit for natural language processing.",
-    imageHint: "chatbot interface",
-    liveUrl: "#",
-    githubUrl: "#",
-    tags: ["Genkit", "AI", "Next.js"],
-  },
-  {
-    title: "Real-time Collab Editor",
-    description: "A collaborative document editor similar to Google Docs, built with WebSockets for real-time synchronization.",
-    imageHint: "text editor",
-    liveUrl: "#",
-    githubUrl: "#",
-    tags: ["WebSockets", "Node.js", "React"],
-  },
-  {
-    title: "Personal Blog Platform",
-    description: "A fully-featured blogging platform with a Markdown editor, comments, and a custom-built CMS.",
-    imageHint: "blog layout",
-    liveUrl: "#",
-    githubUrl: "#",
-    tags: ["React", "Express", "PostgreSQL"],
+    tags: ["FastAPI", "RoBERTa", "React", "TailwindCSS"],
   },
 ];
 
@@ -72,10 +32,10 @@ const ProjectsSection = () => {
               <CardHeader className="p-0">
                 <div className="relative h-48 w-full">
                   <Image
-                    src={`https://placehold.co/600x400.png`}
+                    src={"/images/media-watchdog-image.PNG"}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
                     data-ai-hint={project.imageHint}
                   />
                 </div>
@@ -89,12 +49,12 @@ const ProjectsSection = () => {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-end gap-2 p-4 mt-auto">
+              <CardFooter className="flex justify-center gap-2 p-4 mt-auto">
                 <Button variant="ghost" size="icon" asChild>
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
+                  <a href={project.githubUrl} target="https://github.com/raghavv2710/ai-media-watchdog-backend" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
                 </Button>
                 <Button variant="ghost" size="icon" asChild>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
+                  <a href={project.liveUrl} target="https://mediawatchdog.vercel.app/" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
                 </Button>
               </CardFooter>
             </Card>

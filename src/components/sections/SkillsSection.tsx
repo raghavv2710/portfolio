@@ -5,12 +5,10 @@ import { Progress } from "@/components/ui/progress";
 import React from "react";
 
 const skills = [
-  { name: 'React & Next.js', level: 95 },
-  { name: 'TypeScript', level: 90 },
-  { name: 'Three.js & 3D', level: 80 },
-  { name: 'Tailwind CSS', level: 98 },
-  { name: 'Node.js & Backend', level: 75 },
-  { name: 'UI/UX Design', level: 85 },
+  { name: 'React', level: 95 },
+  { name: 'TailwindCSS', level: 90 },
+  { name: 'FastAPI', level: 85 },
+  { name: 'RoBERTa', level: 80 },
 ];
 
 const SkillsSection = () => {
