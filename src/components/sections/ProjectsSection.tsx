@@ -10,8 +10,8 @@ const projects = [
     title: "AI Media Watchdog",
     description: "An AI-powered platform that monitors digital media for sentiment, toxicity, and misinformation, delivering real-time insights for healthier online spaces.",
     imageHint: "media monitoring dashboard",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://mediawatchdog.vercel.app/",
+    githubUrl: "https://github.com/raghavv2710/ai-media-watchdog-backend",
     tags: ["FastAPI", "RoBERTa", "React", "TailwindCSS"],
   },
 ];
@@ -51,10 +51,10 @@ const ProjectsSection = () => {
               </CardContent>
               <CardFooter className="flex justify-center gap-2 p-4 mt-auto">
                 <Button variant="ghost" size="icon" asChild>
-                  <a href={project.githubUrl} target="https://github.com/raghavv2710/ai-media-watchdog-backend" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><Github /></a>
                 </Button>
                 <Button variant="ghost" size="icon" asChild>
-                  <a href={project.liveUrl} target="https://mediawatchdog.vercel.app/" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo"><ExternalLink /></a>
                 </Button>
               </CardFooter>
             </Card>
